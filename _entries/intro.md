@@ -8,4 +8,4 @@ number: 1000
 
 ![MechWiki](https://b.thumbs.redditmedia.com/9UKotfAgsgaOQEdo3GR-rKov6-Ulp2f3h-5KDBrLNLs.png){: .center-image }
 
-This is a general information page and you may be able to add or edit anything on this webpage.
+This is a general information page and you may be able to add or edit anything on this webpage. This page combines many resources into one website and helps guide users through the magical exprience of choosing a mechanical keyboard.
