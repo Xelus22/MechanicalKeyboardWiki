@@ -5,7 +5,7 @@ is-parent: yes
 title: Why a Mechanical Keyboard?
 number: 2000
 ---
-There are many reasons as to why a user will want a mechanical keyboard:
+There are many reasons as to why a user would want a mechanical keyboard:
  <ol type="1">
   <li><strong>Durability</strong></li>
   
