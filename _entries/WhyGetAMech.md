@@ -9,7 +9,7 @@ There are many reasons as to why a user would want a mechanical keyboard:
  <ol type="1">
   <li><strong>Durability</strong></li>
   
-Not only do mechanical switches such as Gateron or Cherry (which we will go more indepth on later) have an extremely long life span of up to 50million actuations.
+Not only do mechanical switces have an extremely long life span of up to 50million actuations. There are some mechanical keyboards such as the Model F from IBM that are still in great condition and have not broken down to this day.
   
   <li><strong>Customizability</strong></li>
   

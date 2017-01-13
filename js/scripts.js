@@ -6,4 +6,5 @@ $(document).ready(function(){
     $('.toggle').click(function(){
         $('.overview').toggleClass('open');
     });
+
 });

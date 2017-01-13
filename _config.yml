@@ -1,5 +1,6 @@
 full_rebuild: true
 name: Mechanical Keyboards Guide
+author: Harrison Chan
 version: 
 encoding: utf-8
 defaults:
