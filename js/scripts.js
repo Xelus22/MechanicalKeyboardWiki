@@ -7,4 +7,7 @@ $(document).ready(function(){
         $('.overview').toggleClass('open');
     });
 
+var database = firebase.database();
+
+
 });
