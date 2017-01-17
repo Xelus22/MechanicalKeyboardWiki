@@ -17,5 +17,6 @@ number: 3000
 <li><strong>Keycaps</strong></li>
 </ul>
 
+You will also need to consider the layout that is best suited for you as there are many layouts to choose from. From the smallest 40% keyboards to fullsize keyboards.
 
 If you are going to handwire the keyboard, you must have a plate and plate-mounted stabilizers and separate micro-controller. We will be going into handwired builds later in the wiki.

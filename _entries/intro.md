@@ -5,7 +5,7 @@ title: Introduction
 number: 1000
 ---
 
-
+<button id = 'test'> testing </button>
 - Welcome to the Mechanical Keyboards Wiki where you can find everything mechanical keyboards related.
 
 ![MechWiki](https://b.thumbs.redditmedia.com/9UKotfAgsgaOQEdo3GR-rKov6-Ulp2f3h-5KDBrLNLs.png){: .center-image }
