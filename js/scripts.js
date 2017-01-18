@@ -1,5 +1,8 @@
 $(document).ready(function(){
 	
+	document.getElementById('menu').classList.toggle("change"); //change the menu animation for UI purposes
+	
+	//Firebase anonymous authentication
 	firebase.auth().signInAnonymously()
 .then(function() {
    console.log('Logged in as Anonymous!')
@@ -10,7 +13,7 @@ $(document).ready(function(){
    console.log(errorMessage);
 });
 	
-	$('#nav').onePageNav();
+	$('#nav').onePageNav(); //go to page 1
 
 	$('a[href^="http"]').attr('target','_blank');
 	
@@ -55,6 +58,7 @@ console.log('test');
 
 });
 
+//closing and opening of the sidebar menu
 document.getElementById('menu').onclick= function(){
 	document.getElementById('menu').classList.toggle("change");
 	var div = document.getElementById('overview');
@@ -67,7 +71,3 @@ document.getElementById('menu').onclick= function(){
 		document.getElementById('content').style.width = 'calc(100% - 320px)'
     }
 }
-
-/*document.getElementById('menu').onclick = function(){
-	document.getElementById('menu').classList.toggle("change");
-}*/
