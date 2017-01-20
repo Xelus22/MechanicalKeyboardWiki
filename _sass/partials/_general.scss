@@ -17,6 +17,27 @@ body{
 	position:fixed;
 }
 
+/*Menu tool tip*/
+.menutooltip {
+	font-size:14px;
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+}
+
+.menutooltip{
+	position: absolute;
+    z-index: 1;
+}
+
+.menu:hover .menutooltip {
+    visibility: visible;
+}	
+
 /*Animation*/
 /* Rotate first bar */
 .change .bar1 {
@@ -272,5 +293,32 @@ p + p{
     margin-top: 20px;
 }
 
+/*tables*/
+table {
+    border-collapse: collapse;
+	margin: 0px auto;
+	width: 80%;
+}
+td{
+	text-align:center; 
+    vertical-align:middle;
+}
+table, th, td {
+    padding: 4px;
+	border: 1px solid black;
+}
+th {
+    background-color: #1D84B9;
+    color: white;
+}
 
+select{
+	font-size:90%;	
+}
+input{
+	font-size:90%;	
+}
+button{
+	font-size:80%;
+}
 
