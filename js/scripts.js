@@ -56,7 +56,8 @@ $(document).ready(function(){
 		cell2.innerHTML = Name;
 		cell3.innerHTML = Type;
 		cell4.innerHTML = ActuationForce;
-	 	cell5.innerHTML = '<img src="'+Image+'" />';
+	 	cell5.innerHTML = '<img src="![Img]('+Image+'?raw=true)" />';
+		console.log(SwitchM, Name, Type, ActuationForce, Image)
 	});
 
 	//writeSwitchData('RGB Silver (AKA Speed)', 'Linear', '/img/Cherry_MX_Speed_RGB_Silver.jpg', 'Cherry MX', '45g');
