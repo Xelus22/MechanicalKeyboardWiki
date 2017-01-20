@@ -57,7 +57,7 @@ $(document).ready(function(){
 		cell3.innerHTML = Type;
 		cell4.innerHTML = ActuationForce;
 	 	//cell5.innerHTML = '<img src="![Img]('+Image+'?raw=true)" />';
-		cell5.innerHTML = '<img src="'+Image+'" />';
+		cell5.innerHTML = '<img src="'+Image+'"/>';
 		console.log(SwitchM, Name, Type, ActuationForce, Image)
 	});
 
