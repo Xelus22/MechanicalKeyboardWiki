@@ -1,15 +1,13 @@
-var switchDatabase
-document.getElementById('menu').classList.toggle("change"); 
-
+//Global Variables
 var Name;
 var Image;
 var Type;
 var ActuationForce;
-var SwitchM;
-var CheckCounter = 0;
+var SwitchM; 					//Switch Manufacturer
 
 $(document).ready(function(){
 	//change the menu animation for UI purposes
+	document.getElementById('menu').classList.toggle('change'); 
 	
 	//Firebase anonymous authentication
 	firebase.auth().signInAnonymously().then(function() {
@@ -36,17 +34,17 @@ $(document).ready(function(){
 		console.log("DB: "+key);
 		console.log(switchDatabase.Switches[key].Type);
 	}*/
-	
-	firebase.database().ref().child('Switches').on("child_added", snap =>{ 		//loop by firebase code to get each child data and put them into a table
-		const SwitchTable = document.getElementById("SwitchTable");				//Define Switch table, add rows and columns to table
+	//
+	firebase.database().ref().child('Switches').orderByChild('Name').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
+		const SwitchTable = document.getElementById('SwitchTable');				//Define Switch table, add rows and columns to table
 		
-		var Name = snap.child("Name").val();									//Get Name from database
-		var Image = snap.child("Picture").val()									//Get Picture from database
-		var Type = snap.child("Type").val()										//Get Type from database
-		var ActuationForce = snap.child("ActuationForce").val()					//Get Actuation Force from database
-		var SwitchM = snap.child("SwitchM").val()								//Get switch manufacturer from database
+		var Name = snap.child('Name').val();									//Get Name from database
+		var Image = snap.child('Picture').val()									//Get Picture from database
+		var Type = snap.child('Type').val()										//Get Type from database
+		var ActuationForce = snap.child('ActuationForce').val()					//Get Actuation Force from database
+		var SwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
-		var row = SwitchTable.insertRow(1);										//add data to table
+		var row = SwitchTable.insertRow(-1);									//add data to table
   		var cell1 = row.insertCell(0);
     	var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
@@ -56,31 +54,16 @@ $(document).ready(function(){
 		cell2.innerHTML = Name;
 		cell3.innerHTML = Type;
 		cell4.innerHTML = ActuationForce;
-	 	//cell5.innerHTML = '<img src="![Img]('+Image+'?raw=true)" />';
 		cell5.innerHTML = '<img src="'+Image+'"/>';
-		console.log(SwitchM, Name, Type, ActuationForce, Image)
-	});
-
-	//writeSwitchData('RGB Silver (AKA Speed)', 'Linear', '/img/Cherry_MX_Speed_RGB_Silver.jpg', 'Cherry MX', '45g');
+	});	
 	
 });
 // Get a reference to the database service
  	const database = firebase.database();
-	
-	//Get elements
-	const preObject = document.getElementById('object');
-	
-	//Create references
-	const dbRefObject = firebase.database().ref().child('object');
-	
-//changing existing data
-  //writeUserData('MXBlues', 'MXBlues', 'Clicky', 'image');
 
-
-//change data
-	
+//Function to write data to the database	
 function writeSwitchData(switchManufacturer, name, types, actuationForce, imageUrl) {
- 	   firebase.database().ref('Switches/' + name).set({
+ 	   firebase.database().ref('Switches/' + switchManufacturer + name).set({
         Name: name,
    	 	Type: types,
     	Picture : imageUrl,
@@ -89,15 +72,13 @@ function writeSwitchData(switchManufacturer, name, types, actuationForce, imageU
   	});
 }
 
-  //retrieve database
+//retrieve database
 function retrieveDatabase(){
-firebase.database().ref().on("value", function(snapshot) {
-	switchDatabase = snapshot.val();
-	console.log(Object.keys(switchDatabase.Switches).length);
-
-	//console.log(switchDatabase.Switches[0]['Name']);
+firebase.database().ref().on('value', function(snapshot) {
+	switchDatabase = snapshot.val();								//snapshot.val() is the object's value returned from the database
+	console.log(Object.keys(switchDatabase.Switches).length); 		//logs the no. of items in the database
 	}, function (error) {
-		console.log("Error: " + error.code);
+		console.log('Error: ' + error.code);
 	});
 }
 
@@ -109,14 +90,12 @@ document.getElementById('Submit').onclick= function(){
 	ActuationForce = document.getElementById('ActuationForce').value + 'g';
 	SwitchM = document.getElementById('SwitchM').value;
 
-	writeSwitchData(SwitchM, Name, Type, ActuationForce, Image);
-	
-	
+	writeSwitchData(SwitchM, Name, Type, ActuationForce, Image);	
 }
 
 //closing and opening of the sidebar menu with the animation line
 document.getElementById('menu').onclick= function(){
-	document.getElementById('menu').classList.toggle("change");  //animate the menu button
+	document.getElementById('menu').classList.toggle('change');  //animate the menu button
 	var div = document.getElementById('overview');
     if (div.style.display !== 'none') {
         div.style.display = 'none';  							 //close the sidebar

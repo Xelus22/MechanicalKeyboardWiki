@@ -6,7 +6,7 @@ number: 3100
 parent-id: Parts
 is-parent: no
 ---
-- First of all, there is no <strong>best</strong> switch. There is a misconception that mx blues were the best for typing, reds/browns for gaming. However, this is not true. Each person will have their own personal preference based on the type of switch.
+- First of all, <strong>there is no best switch.</strong> There is a misconception that Cherry MX Blues are the best for typing and Cherry MX Reds or Browns for gaming. However, this is not true. Each person will have their own personal preference based on the type of switch.
 
 <strong>"Different strokes for different folks" - /u/manofinterests (<a href = 'http://twitch.tv/topclack'>Topclack</a> host)</strong>
 
