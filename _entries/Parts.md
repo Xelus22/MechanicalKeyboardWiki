@@ -3,7 +3,7 @@ sectionid: Parts
 sectionclass: h1
 is-parent: yes
 title: Parts of a Mechanical Keyboard
-number: 3000
+number: 4000
 ---
 - There are many different parts to a keyboard. Here is a typical list of what items you will need to make a keyboard by yourself:    
 
@@ -17,6 +17,6 @@ number: 3000
 <li><strong>Keycaps</strong></li>
 </ul>
 
-You will also need to consider the layout that is best suited for you as there are many layouts to choose from. From the smallest 40% keyboards to fullsize keyboards.
+You will also need to consider the layout that is best suited for you as there are many layouts to choose from. From the smallest, 30% keyboards all the way to fullsize keyboards.
 
 If you are going to handwire the keyboard, you must have a plate and plate-mounted stabilizers and separate micro-controller. We will be going into handwired builds later in the wiki.
