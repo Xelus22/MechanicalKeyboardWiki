@@ -35,7 +35,7 @@ $(document).ready(function(){
 		console.log(switchDatabase.Switches[key].Type);
 	}*/
 	//
-	firebase.database().ref().child('Switches').orderByChild('Name').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
+	firebase.database().ref().child('Switches').orderByChild('SwitchM').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
 		const SwitchTable = document.getElementById('SwitchTable');				//Define Switch table, add rows and columns to table
 		
 		var Name = snap.child('Name').val();									//Get Name from database
