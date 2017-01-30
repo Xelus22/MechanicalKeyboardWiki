@@ -2,7 +2,8 @@
 var Name;
 var Image;
 var Type;
-var ActuationForce;
+var Force;
+var ForceType;
 var SwitchM; 					//Switch Manufacturer
 
 $(document).ready(function(){
@@ -41,7 +42,8 @@ $(document).ready(function(){
 		var Name = snap.child('Name').val();									//Get Name from database
 		var Image = snap.child('Picture').val()									//Get Picture from database
 		var Type = snap.child('Type').val()										//Get Type from database
-		var ActuationForce = snap.child('ActuationForce').val()					//Get Actuation Force from database
+		var Force = snap.child('Force').val()					//Get Actuation Force from database
+		var ForceType = snap.child('ForceType').val()
 		var SwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
 		var row = SwitchTable.insertRow(-1);									//add data to table
@@ -53,7 +55,7 @@ $(document).ready(function(){
 		cell1.innerHTML = SwitchM;
 		cell2.innerHTML = Name;
 		cell3.innerHTML = Type;
-		cell4.innerHTML = ActuationForce;
+		cell4.innerHTML = Force + ' ' +ForceType + ' Force';
 		cell5.innerHTML = '<img src="'+Image+'"/>';
 	});	
 	
@@ -62,13 +64,14 @@ $(document).ready(function(){
  	const database = firebase.database();
 
 //Function to write data to the database	
-function writeSwitchData(switchManufacturer, name, types, actuationForce, imageUrl) {
+function writeSwitchData(switchManufacturer, name, types, force, forceType, imageUrl) {
  	   firebase.database().ref('Switches/' + switchManufacturer + name).set({
         Name: name,
    	 	Type: types,
     	Picture : imageUrl,
 		SwitchM : switchManufacturer,
-		ActuationForce: actuationForce
+		Force: force,
+		ForceType: forceType
   	});
 }
 
@@ -87,10 +90,15 @@ document.getElementById('Submit').onclick= function(){
 	Name = document.getElementById('Name').value;
 	Image = document.getElementById('Image').value;
 	Type = document.getElementById('Type').value;
-	ActuationForce = document.getElementById('ActuationForce').value + 'g';
+	if(document.getElementById('Force').value.length > 3){
+		Force = document.getElementById('Force').value;
+	} else {
+		Force = document.getElementById('Force').value + 'g';
+	}
 	SwitchM = document.getElementById('SwitchM').value;
+	ForceType = document.getElementById('ForceType').value;
 
-	writeSwitchData(SwitchM, Name, Type, ActuationForce, Image);	
+	writeSwitchData(SwitchM, Name, Type, Force, ForceType, Image);	
 }
 
 //closing and opening of the sidebar menu with the animation line

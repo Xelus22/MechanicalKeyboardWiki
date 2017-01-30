@@ -37,7 +37,7 @@ There are many different mechanical switch manufacturers such as Gateron, Kailh,
     <th width = '18%' height = '18%'>Manufacturer</th>
     <th width = '16%' height = '16%'>Name</th>
 	<th width = '10%' height = '10%'>Type</th>
-    <th width = '18%' height = '18%'>Actuation Force</th>
+    <th width = '18%' height = '18%'>Force</th>
 	<th width = '18%' height = '18%'>Image</th>
   </tr>
 </table>
@@ -52,22 +52,39 @@ Note: For image link, please place in a direct link from imgur.
 <table id = 'AddSwitchTable'>
 <tr>
     <td width = '18%'>Manufacturer</td>
+	<td width = '18%'><input type="text" id="SwitchM" placeholder = 'Manufacturer'></td>
+</tr>
+<tr>	
     <td width = '16%'>Name</td>
+	<td width = '16%'><input type="text" id="Name" placeholder = 'Name'></td>
+</tr>
+<tr>
 	<td width = '10%'>Type</td>
-    <td width = '18%'>Actuation Force</td>
-	<td width = '18%'>Image</td>
-  </tr>
-  <tr>
-    <td width = '18%'><input type="text" id="SwitchM" placeholder = 'Manufacturer'></td>
-    <td width = '16%'><input type="text" id="Name" placeholder = 'Name'></td>
 	<td width = '10%'><select id = 'Type'>
  		<option value="Linear">Linear</option>
   		<option value="Tactile">Tactile</option>
   		<option value="Clicky">Clicky</option>
 		</select>
+	</td>	
+</tr>
+<tr>
+    <td width = '18%'>Force</td>
+	<td width = '18%'><input type="text" id="Force" placeholder = 'Force'></td>
+</tr>
+<tr>
+	<td width = '18%'>Force Type</td>
+	<td width = '10%'><select id = 'ForceType'>
+		<option value="Actuation">Actuation</option>
+ 		<option value="Bottom Out">Bottom Out</option>
+		</select>
 	</td>
-    <td width = '18%'><input type="text" id="ActuationForce" placeholder = 'Actuation Force'></td>
+</tr>
+<tr>
+	<td width = '18%'>Image</td>
 	<td width = '18%'><input type="text" id="Image" placeholder = 'direct link to image'></td>
+</tr>
+ <tr>
+ 	<td></td>
 	<td width = '5%'><button id = 'Submit'>Submit</button></td>
-  </tr>
+ </tr>
 </table>
