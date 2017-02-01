@@ -7,8 +7,6 @@ body{
     line-height: 1.4;
     background: $white;
     color: $black;
-	max-width: 1000px;
-	margin:auto;
 }
 
 /*Menu Icon */
@@ -81,6 +79,7 @@ body{
 .overview{
     width: 320px;
     font-size: 18px;
+	transition: 0.5s;
 }
 
 .button{
@@ -90,19 +89,21 @@ body{
 
 .content{
     counter-reset: h1-counter;
-    width: calc(100% - 320px);
+    width: 1000px;
     position: absolute;
-    right: 0;
-    
+    max-width: 1000px;
+	margin:auto;
+	
     @media screen and (max-width: $sidebar-collapse){
         width: 100%;
     }
+	
 
-    .toggle{
+    /*.toggle{
         position: absolute;
         top: 5px;
         left: 5px;
-    }
+    }*/
 }
 
 section{

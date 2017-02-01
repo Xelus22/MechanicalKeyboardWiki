@@ -26,9 +26,9 @@ $(document).ready(function(){
 
 	$('a[href^="http"]').attr('target','_blank');
 	
-	$('.toggle').click(function(){
+	/*$('.toggle').click(function(){
 		$('.overview').toggleClass('open');
-	});
+	});*/
 
 	//get value of Type from database through a loop of every object inside
 	/*for (var key in switchDatabase.Switches) {
@@ -90,11 +90,7 @@ document.getElementById('Submit').onclick= function(){
 	Name = document.getElementById('Name').value;
 	Image = document.getElementById('Image').value;
 	Type = document.getElementById('Type').value;
-	if(document.getElementById('Force').value.length > 3){
-		Force = document.getElementById('Force').value;
-	} else {
-		Force = document.getElementById('Force').value + 'g';
-	}
+	Force = document.getElementById('Force').value;
 	SwitchM = document.getElementById('SwitchM').value;
 	ForceType = document.getElementById('ForceType').value;
 
@@ -107,10 +103,10 @@ document.getElementById('menu').onclick= function(){
 	var div = document.getElementById('overview');
     if (div.style.display !== 'none') {
         div.style.display = 'none';  							 //close the sidebar
-		document.getElementById('content').style.width = '100%';  //content to fill page
+		document.getElementById('content').style.width = '1000px';  //content to fill page
     }
     else {
         div.style.display = 'block';							 //open the sidebar
 		document.getElementById('content').style.width = 'calc(100% - 320px)' //content back to original size
-    }
+    }	
 }
