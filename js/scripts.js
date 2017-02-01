@@ -103,10 +103,10 @@ document.getElementById('menu').onclick= function(){
 	var div = document.getElementById('overview');
     if (div.style.display !== 'none') {
         div.style.display = 'none';  							 //close the sidebar
-		//document.getElementById('content').style.width = '1000px';  //content to fill page
+		document.getElementById('content').style.marginLeft = '0';  //content to fill page
     }
     else {
         div.style.display = 'block';							 //open the sidebar
-		//document.getElementById('content').style.width = 'calc(100% - 320px)' //content back to original size
+		document.getElementById('content').style.marginLeft = '320px' //content back to original size
     }	
 }

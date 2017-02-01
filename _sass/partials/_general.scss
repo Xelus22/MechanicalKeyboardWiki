@@ -91,10 +91,9 @@ body{
 
 .content{
     counter-reset: h1-counter;
-    width: 1000px;
-
     max-width: 1000px;
 	float:left;
+	margin-left:320px;
     /*@media screen and (max-width: $sidebar-collapse){
         width: 100%;
     }*/
