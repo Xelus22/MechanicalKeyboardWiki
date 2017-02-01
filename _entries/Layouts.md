@@ -20,4 +20,4 @@ Here is the standard keyboard layout (ANSI and ISO). I have color coded the grap
 
 So, with this system any keyboard that is covered by light blue/green/yellow caps alone <strong>SHOULD</strong> be covered by a standard 104 keycap set (like Ducky, Tai Hao, etc). Keep in mind a few more boards can be covered by these sets, just not with the correct profile for each key. 
 
-At the end of this article will be a Download section where I will link all of the Raw data so you can import any of these layouts into Keyboard-Layout-Editor.com for further inquisition of any layout. You will be able to see the exact keys sizes through doing this as well.
+<i>At the end of this article will be a Download section where I will link all of the Raw data so you can import any of these layouts into Keyboard-Layout-Editor.com for further inquisition of any layout. You will be able to see the exact keys sizes through doing this as well.</i>
