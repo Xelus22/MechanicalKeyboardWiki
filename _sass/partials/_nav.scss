@@ -20,7 +20,7 @@
     background: $white;
     border-right: 3px solid $green;
     
-    /*@media screen and (max-width: $sidebar-collapse){
+    @media screen and (max-width: $sidebar-collapse){
         left: -320px;
         transition: .3s all ease;
         transform: translate(0, 0);
@@ -29,7 +29,7 @@
         &.open{
             transform: translate(320px, 0);
         }
-    }*/
+    }
     
     .toggle{
         position: absolute;
