@@ -6,6 +6,13 @@ var Force;
 var ForceType;
 var SwitchM; 					//Switch Manufacturer
 
+var AlpsName;					//global variabels for Alps switches
+var AlpsImage;
+var AlpsType;
+var AlpsForce;
+var AlpsForceType;
+var AlpsSwitchM;
+
 $(document).ready(function(){
 	//change the menu animation for UI purposes
 	document.getElementById('menu').classList.toggle('change'); 
@@ -26,16 +33,7 @@ $(document).ready(function(){
 
 	$('a[href^="http"]').attr('target','_blank');
 	
-	/*$('.toggle').click(function(){
-		$('.overview').toggleClass('open');
-	});*/
-
-	//get value of Type from database through a loop of every object inside
-	/*for (var key in switchDatabase.Switches) {
-		console.log("DB: "+key);
-		console.log(switchDatabase.Switches[key].Type);
-	}*/
-	//
+	// MX swithc table
 	firebase.database().ref().child('Switches').orderByChild('SwitchM').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
 		const SwitchTable = document.getElementById('SwitchTable');				//Define Switch table, add rows and columns to table
 		
@@ -59,13 +57,49 @@ $(document).ready(function(){
 		cell5.innerHTML = '<img src="'+Image+'"/>';
 	});	
 	
+	//alps table
+	
+	firebase.database().ref().child('Alps').orderByChild('SwitchM').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
+		const SwitchTable = document.getElementById('AlpsSwitchTable');				//Define Switch table, add rows and columns to table
+		
+		var AlpsName = snap.child('Name').val();									//Get Name from database
+		var AlpsImage = snap.child('Picture').val()									//Get Picture from database
+		var AlpsType = snap.child('Type').val()										//Get Type from database
+		var AlpsForce = snap.child('Force').val()					//Get Actuation Force from database
+		var AlpsForceType = snap.child('ForceType').val()
+		var AlpsSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
+		
+		var row = SwitchTable.insertRow(-1);									//add data to table
+  		var cell1 = row.insertCell(0);
+    	var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		cell1.innerHTML = AlpsSwitchM;
+		cell2.innerHTML = AlpsName;
+		cell3.innerHTML = AlpsType;
+		cell4.innerHTML = AlpsForce + ' ' + AlpsForceType + ' Force';
+		cell5.innerHTML = '<img src="'+AlpsImage+'"/>';
+	});	
 });
 // Get a reference to the database service
  	const database = firebase.database();
 
-//Function to write data to the database	
+//Function to write MX data to the database	
 function writeSwitchData(switchManufacturer, name, types, force, forceType, imageUrl) {
  	   firebase.database().ref('Switches/' + switchManufacturer + name).set({
+        Name: name,
+   	 	Type: types,
+    	Picture : imageUrl,
+		SwitchM : switchManufacturer,
+		Force: force,
+		ForceType: forceType
+  	});
+}
+
+//Function to write ALPS data to the database	
+function writeAlpsSwitchData(switchManufacturer, name, types, force, forceType, imageUrl) {
+ 	   firebase.database().ref('Alps/' + switchManufacturer + name).set({
         Name: name,
    	 	Type: types,
     	Picture : imageUrl,
@@ -85,7 +119,7 @@ firebase.database().ref().on('value', function(snapshot) {
 	});
 }
 
-//Submit new switch data
+//Submit new switch MX data
 document.getElementById('Submit').onclick= function(){
 	Name = document.getElementById('Name').value;
 	Image = document.getElementById('Image').value;
@@ -95,6 +129,18 @@ document.getElementById('Submit').onclick= function(){
 	ForceType = document.getElementById('ForceType').value;
 
 	writeSwitchData(SwitchM, Name, Type, Force, ForceType, Image);	
+}
+
+//Submit new switch ALPS data
+document.getElementById('AlpsSubmit').onclick= function(){
+	AlpsName = document.getElementById('AlpsName').value;
+	AlpsImage = document.getElementById('AlpsImage').value;
+	AlpsType = document.getElementById('AlpsType').value;
+	AlpsForce = document.getElementById('AlpsForce').value;
+	AlpsSwitchM = document.getElementById('AlpsSwitchM').value;
+	AlpsForceType = document.getElementById('AlpsForceType').value;
+
+	writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);	
 }
 
 //closing and opening of the sidebar menu with the animation line
