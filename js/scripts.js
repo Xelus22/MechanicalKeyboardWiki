@@ -122,31 +122,32 @@ firebase.database().ref().on('value', function(snapshot) {
 //Submit new switch MX data
 document.getElementById('Submit').onclick= function(){
 	var check = confirm("Please check everything is correct. You will not be able to change it once you press OK")
-	if (confirm == true){
+	if (check == true){
 		Name = document.getElementById('Name').value;
 		Image = document.getElementById('Image').value;
 		Type = document.getElementById('Type').value;
 		Force = document.getElementById('Force').value;
 		SwitchM = document.getElementById('SwitchM').value;
 		ForceType = document.getElementById('ForceType').value;
+		
+		writeSwitchData(SwitchM, Name, Type, Force, ForceType, Image);	
 	}
-
-	writeSwitchData(SwitchM, Name, Type, Force, ForceType, Image);	
 }
+
 
 //Submit new switch ALPS data
 document.getElementById('AlpsSubmit').onclick= function(){
 	var check = confirm("Please check everything is correct. You will not be able to change it once you press OK")
-	if (confirm == true){
+	if (check == true){
 		AlpsName = document.getElementById('AlpsName').value;
 		AlpsImage = document.getElementById('AlpsImage').value;
 		AlpsType = document.getElementById('AlpsType').value;
 		AlpsForce = document.getElementById('AlpsForce').value;
 		AlpsSwitchM = document.getElementById('AlpsSwitchM').value;
 		AlpsForceType = document.getElementById('AlpsForceType').value;
+		
+		writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);	
 	}
-
-	writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);	
 }
 
 //closing and opening of the sidebar menu with the animation line
