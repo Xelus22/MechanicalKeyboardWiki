@@ -131,14 +131,16 @@ document.getElementById('Submit').onclick= function(){
 		ForceType = document.getElementById('ForceType').value;
 		
 		writeSwitchData(SwitchM, Name, Type, Force, ForceType, Image);	
+	}else{
+		return false
 	}
 }
 
 
 //Submit new switch ALPS data
 document.getElementById('AlpsSubmit').onclick= function(){
-	var check = confirm("Please check everything is correct. You will not be able to change it once you press OK")
-	if (check == true){
+	
+	if (confirm("Please check everything is correct. You will not be able to change it once you press OK")){
 		AlpsName = document.getElementById('AlpsName').value;
 		AlpsImage = document.getElementById('AlpsImage').value;
 		AlpsType = document.getElementById('AlpsType').value;
@@ -147,6 +149,8 @@ document.getElementById('AlpsSubmit').onclick= function(){
 		AlpsForceType = document.getElementById('AlpsForceType').value;
 		
 		writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);	
+	}else{
+		return false
 	}
 }
 
