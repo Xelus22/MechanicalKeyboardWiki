@@ -6,7 +6,12 @@ number: 3120
 parent-id: Switches
 is-parent: no
 ---
-- 
+- skcl is all linear complicated
+skcm is all clicky/tactile complicated
+skbl is all linear simplified
+skbm is all clicky/tactile simplified
+
+<br>
 
 <table id = 'AlpsSwitchTable'>
 <tr>
