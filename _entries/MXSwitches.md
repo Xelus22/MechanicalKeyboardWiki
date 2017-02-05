@@ -6,7 +6,7 @@ number: 3110
 parent-id: Switches
 is-parent: no
 ---
-- There are many different mechanical switch manufacturers such as Gateron, Kailh, Greetech, Cherry (now known as ZF) and many others. Each company has their own way of colour-coding the switches into their different properties and aspects. Below is a table of all the mechanical switches known to the community. Each entry shows the type of switch, the actuation and actuation force and includes a picture for easy identification. You may add new switches yourself as new switches appear from the community or OEMs.
+- There are many different mechanical switch manufacturers such as Gateron, Kailh, Greetech, Cherry (now known as ZF) and many others. Each company has their own way of colour-coding the switches into their different properties and aspects. Below is a table of all the MX style mechanical switches known to the community. Each entry shows the type of switch, the actuation or bottom out force and includes a picture for easy identification. You may add new switches yourself as new switches appear from the community or OEMs.
 
 <b>This table is for MX type switches only. For Alps switches go <a href = "#Alps">here</a>.</b>
 
@@ -23,7 +23,7 @@ is-parent: no
 
 <br>
 
-Add new or forgotten switches to the database here. They will be shown once you have refreshed the page.
+Add new or forgotten switches to the database here.
 <br>
 
 Note: For image link, please place in a direct link from imgur.
