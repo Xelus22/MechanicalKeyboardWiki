@@ -121,7 +121,7 @@ firebase.database().ref().on('value', function(snapshot) {
 
 //Submit new switch MX data
 document.getElementById('Submit').onclick= function(){
-	var confirm = confirm("Please check everything is correct. You will not be able to change it once you press OK")
+	var check = confirm("Please check everything is correct. You will not be able to change it once you press OK")
 	if (confirm == true){
 		Name = document.getElementById('Name').value;
 		Image = document.getElementById('Image').value;
@@ -136,7 +136,7 @@ document.getElementById('Submit').onclick= function(){
 
 //Submit new switch ALPS data
 document.getElementById('AlpsSubmit').onclick= function(){
-	var confirm = confirm("Please check everything is correct. You will not be able to change it once you press OK")
+	var check = confirm("Please check everything is correct. You will not be able to change it once you press OK")
 	if (confirm == true){
 		AlpsName = document.getElementById('AlpsName').value;
 		AlpsImage = document.getElementById('AlpsImage').value;
