@@ -6,10 +6,13 @@ number: 3120
 parent-id: Switches
 is-parent: no
 ---
-- skcl is all linear complicated
-skcm is all clicky/tactile complicated
-skbl is all linear simplified
-skbm is all clicky/tactile simplified
+- SKCL switches are all linear complicated.
+
+SKCM switches are all clicky/tactile complicated.
+
+SKBL switches are all linear simplified.
+
+SKBM switches are all clicky/tactile simplified.
 
 <br>
 
@@ -25,7 +28,7 @@ skbm is all clicky/tactile simplified
 
 <br>
 
-Add new or forgotten switches to the database here. They will be shown once you have refreshed the page.
+Add new or forgotten switches to the database here. 
 <br>
 
 Note: For image link, please place in a direct link from imgur.

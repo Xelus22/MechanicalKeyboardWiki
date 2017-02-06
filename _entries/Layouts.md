@@ -6,26 +6,7 @@ number: 3200
 parent-id: GeneralGuide
 is-parent: no
 ---
-- There are many layouts to choose from as you may know from /r/MechanicalKeyboards, GeekHack, Deskthority and many other forums/websites. It may be overwhelming to some choosing the right layout but there's always a starting. Here is a guide by LivingSpeedBump, the celebrity over at <a href = 'http://keychatter.com'>keychatter.com</a> which covers most of the common layouts. 
+- There are many layouts to choose from as you may know from /r/MechanicalKeyboards, GeekHack, Deskthority and many other forums/websites. It may be overwhelming to some choosing the right layout but there's always a starting point. This will be a very basic layout guide. For more information on keycap compatability and other layouts, check out LivingSpeedBump's post about keyboard layouts <a href = 'https://www.massdrop.com/talk/947/keyboard-layouts-explained-in-detail-many-pics?mode=group_open'>here</a>. 
 
-<a href = 'https://www.massdrop.com/talk/947/keyboard-layouts-explained-in-detail-many-pics?mode=group_open'>Here</a> is a link to the original post.
 
-I thought it would be exceptionally helpful to have a post discussing keyboard layouts, showing what "standard physical layouts" are, and showing what keys differ for many popular alternative layout keyboards. I am not pointing out correct legend placement with these pictures, with programmable boards that would just be a nightmare, and is more of a discussion just for designers.
-Here is the standard keyboard layout (ANSI and ISO). I have color coded the graphic in this way:
-
-    60% - Light Blue
-    TKL/80% - Green
-    TK/Fullsize/100% - Yellow
-    ISO - Dark Blue (Keys that differ from standard ANSI)
-
-So, with this system any keyboard that is covered by light blue/green/yellow caps alone <strong>SHOULD</strong> be covered by a standard 104 keycap set (like Ducky, Tai Hao, etc). Keep in mind a few more boards can be covered by these sets, just not with the correct profile for each key. 
-
-<i>At the end of this article will be a Download section where I will link all of the Raw data so you can import any of these layouts into Keyboard-Layout-Editor.com for further inquisition of any layout. You will be able to see the exact keys sizes through doing this as well.</i>
-
-![Fullsize Layout](https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_layout.jpg){: .center-image }
-
-There are many different ISO layouts in terms of legends that I won't even go down that rabbit hole, but this is simply a representation of the physical layout of the keyboard.  Obviously the number row keys can EASILY be replaced with the ANSI keys, as this isn't a physical layout difference, but often requested keys, same for ALT and ALTGR. 
-
-Now, for my examples I will be marking keys in RED that are non-standard sizes. I will also take key rows into consideration for this discussion. (See WhiteFox Vanilla example below for more info). Keys that may be included in other standard kits will be colored accordingly.
-
-Let me use the WhiteFox Vanilla layout as an example:
+LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.com'>keychatter.com</a>. 
