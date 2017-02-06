@@ -131,6 +131,11 @@ document.getElementById('Submit').onclick= function(){
 		ForceType = document.getElementById('ForceType').value;
 		
 		writeSwitchData(SwitchM, Name, Type, Force, ForceType, Image);	
+		
+		document.getElementById('Name').value = ''
+		document.getElementById('Image').value = '';
+		document.getElementById('Force').value = '';
+		document.getElementById('SwitchM').value = '';
 	}else{
 		return false
 	}
@@ -148,6 +153,11 @@ document.getElementById('AlpsSubmit').onclick= function(){
 		AlpsForceType = document.getElementById('AlpsForceType').value;
 		
 		writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);	
+		
+		document.getElementById('AlpsName').value = '';
+		document.getElementById('AlpsImage').value = '';
+		document.getElementById('AlpsForce').value = '';
+		document.getElementById('AlpsSwitchM').value = '';
 	}else{
 		return false
 	}
