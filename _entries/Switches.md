@@ -26,4 +26,64 @@ There are many different types of switches in keyboards. All of them have their 
 	<td width = '15%'>Rubber Dome Switch Picture (ew)</td>
     <td width = '15%'>Logitech G19s</td>
   </tr>
+  <tr>
+    <td width = '10%'>Scissor Switch</td>
+    <td width = '60%'>Originally designed for laptops these have a short travel from 1mm in the Surface Pro 3 to 3.2mm in some Logitech Keyboards. An advantage is there are many Tenkeyless and Full Size standalone keyboards in wireless and backlit configurations. For more info see /r/keyboard</td>
+	<td width = '15%'><img src = 'http://i.imgur.com/i1WCrYT.jpg'></td>
+    <td width = '15%'>Your Macbook Pro</td>
+  </tr>
+  <tr>
+    <td width = '10%'>Buckling Spring</td>
+    <td width = '60%'>Relatively high activation force (~75g). Nice <i>Click</i> upon activation, and <i>Clack</i> upon deactivation. A good metaphor is like wearing fat boots on a wood floor. Like a cowboy. Clunky and crisp, in a good way. A user once said that every key on a buckling spring feels like the launch button on a space ship!</td>
+    <td width = '15%'><img src = 'http://i.imgur.com/MM6HIJ1.jpg'></td>
+	<td wdith = '15%'>IBM Model M</td>
+  </tr>
+  <tr>
+    <td width = '10%'>ALPS</td>
+    <td width = '60%'>There are all different sorts of ALPS, but most are found on uncommon keyboards. There are a variety of feels associated with these switches, similar to the variety of Cherry Switches.</td>
+	<td width = '15%'><img src = 'https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/Alps_SKCM_Orange.jpg'></td>
+    <td width = '15%'>AEKII</td>
+  </tr>
+  <tr>
+    <td width = '10%'>Topre</td>
+    <td width = '60%'>Some say this is the most elegant feels. It's said to feel smoother than Cherry, but far more solid than a standard rubber dome. They're soft when bottomed out, and are not clicky. They're only featured on a few, expensive keyboards. They use a combination of a rubber dome and a spring for their mechanism, so it's said they adopt the best of both worlds.</td>
+	<td width = '15%'><img src = 'http://i.imgur.com/oo6B72y.jpg'></td>
+    <td width = '15%'>RF 87U, HHKB</td>
+  </tr>
+  <tr>
+    <td width = '10%'>Cherry MX</td>
+    <td width = '60%'>These are the switches that most modern mechanicals will have, the most commonly used. There are a large variety of switches, but in general, Cherrys are what you think of when you think of mechanical switches. They are solid, have a good feel, and have a variety of options. These options and differences will be highlighted below.</td>
+	<td width = '15%'><img src = 'https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/Cherry_MX_Blue.jpg'></td>
+    <td width = '15%'>Ducky Shine 3</td>
+  </tr>
+  <tr>
+    <td width = '10%'>Gateron</td>
+    <td width = '60%'>Gaterons are very good clones of Cherry MX as many enthusiasts agree that Gaterons are much smoother than Cherry's but do have a bit more wobble on them. Their colour scheme is nearly identical to Cherry MX.</td>
+	<td width = '15%'><img src = 'https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/Gateron_Clear.jpg'></td>
+    <td width = '15%'><a href = 'https://www.massdrop.com/buy/varmilo-va87mr'>Varmilo VA87MR</a></td>
+  </tr>
+  <tr>
+    <td width = '10%'>ALPS</td>
+    <td width = '60%'></td>
+	<td width = '15%'>Rubber Dome Switch Picture (ew)</td>
+    <td width = '15%'>Logitech G19s</td>
+  </tr>
+  <tr>
+    <td width = '10%'>ALPS</td>
+    <td width = '60%'></td>
+	<td width = '15%'>Rubber Dome Switch Picture (ew)</td>
+    <td width = '15%'>Logitech G19s</td>
+  </tr>
+  <tr>
+    <td width = '10%'>ALPS</td>
+    <td width = '60%'></td>
+	<td width = '15%'>Rubber Dome Switch Picture (ew)</td>
+    <td width = '15%'>Logitech G19s</td>
+  </tr>
+  <tr>
+    <td width = '10%'>Gateron</td>
+    <td width = '60%'></td>
+	<td width = '15%'>Rubber Dome Switch Picture (ew)</td>
+    <td width = '15%'>Logitech G19s</td>
+  </tr>
 </table>
