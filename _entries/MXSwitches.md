@@ -13,10 +13,10 @@ is-parent: no
 <br>
 <table id = 'SwitchTable'>
 <tr>
-    <th width = '18%' height = '18%'>Manufacturer</th>
-    <th width = '16%' height = '16%'>Name</th>
-	<th width = '10%' height = '10%'>Type</th>
-    <th width = '18%' height = '18%'>Force</th>
+    <th width = '18%' height = '18%' onclick = 'sortTable(0, SwitchTable)'>Manufacturer</th>
+    <th width = '16%' height = '16%' onclick = 'sortTable(1, SwitchTable)'>Name</th>
+	<th width = '10%' height = '10%' onclick = 'sortTable(2, SwitchTable)'>Type</th>
+    <th width = '18%' height = '18%' onclick = 'sortTable(3, SwitchTable)'>Force</th>
 	<th width = '18%' height = '18%'>Image</th>
   </tr>
 </table>

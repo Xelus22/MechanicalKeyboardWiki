@@ -163,6 +163,53 @@ document.getElementById('AlpsSubmit').onclick= function(){
 	}
 }
 
+//sorting table
+function sortTable(n,TableID){
+	var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+	console.log(n, TableID)
+  	table = document.getElementById(TableID.id);
+  	switching = true;
+  	dir = "asc";  							//Set the sorting direction to ascending:
+  	/*Make a loop that will continue until no switching has been done:*/
+  	while (switching) {
+    	switching = false;
+    	rows = table.getElementsByTagName("TR");
+    	/*Loop through all table rows (except the first, which contains table headers):*/
+    	for (i = 1; i < (rows.length - 1); i++) {
+		  //start by saying there should be no switching:
+		  shouldSwitch = false;
+		  x = rows[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+		  y = rows[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+		  if (dir == "asc") {
+			if (x > y) {
+			  //if so, mark as a switch and break the loop:
+			  shouldSwitch= true;
+			  break;
+			}
+		  } else if (dir == "desc") {
+			if (x < y) {
+			  //if so, mark as a switch and break the loop:
+			  shouldSwitch= true;
+			  break;
+			  }
+			}
+      	}
+	  if (shouldSwitch) {
+		/*If a switch has been marked, make the switch and mark that a switch has been done:*/
+		rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		switching = true;
+		//Each time a switch is done, increase this count by 1:
+		switchcount ++;      
+	  } else {
+		/*If no switching has been done AND the direction is "asc",set the direction to "desc" and run the while loop again.*/
+		if (switchcount == 0 && dir == "asc") {
+		  dir = "desc";
+		  switching = true;
+		}
+      }
+   }	
+}
+
 //closing and opening of the sidebar menu with the animation line
 document.getElementById('menu').onclick= function(){
 	document.getElementById('menu').classList.toggle('change');  //animate the menu button
