@@ -181,6 +181,52 @@ function sortTable(n,TableID){
 		  x = rows[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
 		  y = rows[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
 		  if (dir == "asc") {
+			  if (TableID.id == 'SwitchTable'){
+				if (n == 0){
+			  	document.getElementById("MXManufacturerArrow").innerHTML = '▼'
+				document.getElementById("MXNameArrow").innerHTML = ''
+				document.getElementById("MXTypeArrow").innerHTML = ''
+				document.getElementById("MXForceArrow").innerHTML = ''
+				} else if (n == 1){
+				document.getElementById("MXManufacturerArrow").innerHTML = ''
+				document.getElementById("MXNameArrow").innerHTML = '▼'
+				document.getElementById("MXTypeArrow").innerHTML = ''
+				document.getElementById("MXForceArrow").innerHTML = ''
+				} else if (n == 2){
+				document.getElementById("MXManufacturerArrow").innerHTML = ''
+				document.getElementById("MXNameArrow").innerHTML = ''
+				document.getElementById("MXTypeArrow").innerHTML = '▼'
+				document.getElementById("MXForceArrow").innerHTML = ''
+				}else if (n == 3){
+				document.getElementById("MXManufacturerArrow").innerHTML = ''
+				document.getElementById("MXNameArrow").innerHTML = ''
+				document.getElementById("MXTypeArrow").innerHTML = ''
+				document.getElementById("MXForceArrow").innerHTML = '▼'
+				}
+			  }
+			  else if (TableID.id == 'AlpsSwitchTable'){
+				if (n == 0){
+			  	document.getElementById("AlpsManufacturerArrow").innerHTML = '▼'
+				document.getElementById("AlpsNameArrow").innerHTML = ''
+				document.getElementById("AlpsTypeArrow").innerHTML = ''
+				document.getElementById("AlpsForceArrow").innerHTML = ''
+				} else if (n == 1){
+				document.getElementById("AlpsManufacturerArrow").innerHTML = ''
+				document.getElementById("AlpsNameArrow").innerHTML = '▼'
+				document.getElementById("AlpsTypeArrow").innerHTML = ''
+				document.getElementById("AlpsForceArrow").innerHTML = ''
+				} else if (n == 2){
+				document.getElementById("AlpsManufacturerArrow").innerHTML = ''
+				document.getElementById("AlpsNameArrow").innerHTML = ''
+				document.getElementById("AlpsTypeArrow").innerHTML = '▼'
+				document.getElementById("AlpsForceArrow").innerHTML = ''
+				}else if (n == 3){
+				document.getElementById("AlpsManufacturerArrow").innerHTML = ''
+				document.getElementById("AlpsNameArrow").innerHTML = ''
+				document.getElementById("AlpsTypeArrow").innerHTML = ''
+				document.getElementById("AlpsForceArrow").innerHTML = '▼'
+				}
+			  }
 			if (x > y) {
 			  //if so, mark as a switch and break the loop:
 			  shouldSwitch= true;
@@ -205,6 +251,28 @@ function sortTable(n,TableID){
 		if (switchcount == 0 && dir == "asc") {
 		  dir = "desc";
 		  switching = true;
+		  if (TableID.id == 'SwitchTable'){
+				if (n == 0){
+			  	document.getElementById("MXManufacturerArrow").innerHTML = '▲'
+				} else if (n == 1){
+				document.getElementById("MXNameArrow").innerHTML = '▲'
+				} else if (n == 2){
+				document.getElementById("MXTypeArrow").innerHTML = '▲'
+				}else if (n == 3){
+				document.getElementById("MXForceArrow").innerHTML = '▲'
+				}
+			  }
+			  else if (TableID.id == 'AlpsSwitchTable'){
+				if (n == 0){
+			  	document.getElementById("AlpsManufacturerArrow").innerHTML = '▲'
+				} else if (n == 1){
+				document.getElementById("AlpsNameArrow").innerHTML = '▲'
+				} else if (n == 2){
+				document.getElementById("AlpsTypeArrow").innerHTML = '▲'
+				}else if (n == 3){
+				document.getElementById("AlpsForceArrow").innerHTML = '▲'
+				}
+			  }
 		}
       }
    }	

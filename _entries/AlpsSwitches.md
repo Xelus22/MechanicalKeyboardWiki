@@ -18,10 +18,10 @@ SKBM switches are all clicky/tactile simplified.
 
 <table id = 'AlpsSwitchTable'>
 <tr>
-    <th width = '18%' height = '18%' onclick = 'sortTable(0, AlpsSwitchTable)'>Manufacturer</th>
-    <th width = '16%' height = '16%' onclick = 'sortTable(1, AlpsSwitchTable)'>Name</th>
-	<th width = '10%' height = '10%' onclick = 'sortTable(2, AlpsSwitchTable)'>Type</th>
-    <th width = '18%' height = '18%' onclick = 'sortTable(3, AlpsSwitchTable)'>Force</th>
+    <th width = '18%' height = '18%' onclick = 'sortTable(0, AlpsSwitchTable)'>Manufacturer<span id = 'AlpsManufacturerArrow'>‌‌ </span></th>
+    <th width = '16%' height = '16%' onclick = 'sortTable(1, AlpsSwitchTable)'>Name<span id = 'AlpsManufacturerArrow'>‌‌ </span></th>
+	<th width = '10%' height = '10%' onclick = 'sortTable(2, AlpsSwitchTable)'>Type<span id = 'AlpsManufacturerArrow'>‌‌ </span></th>
+    <th width = '18%' height = '18%' onclick = 'sortTable(3, AlpsSwitchTable)'>Force<span id = 'AlpsManufacturerArrow'>‌‌ </span></th>
 	<th width = '18%' height = '18%'>Image</th>
   </tr>
 </table>
