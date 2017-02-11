@@ -18,10 +18,10 @@ SKBM switches are all clicky/tactile simplified.
 
 <table id = 'AlpsSwitchTable'>
 <tr>
-    <th width = '18%' height = '18%' onclick = 'sortTable(0, AlpsSwitchTable)'>Manufacturer<span id = 'AlpsManufacturerArrow'>‌‌▼</span></th>
-    <th width = '16%' height = '16%' onclick = 'sortTable(1, AlpsSwitchTable)'>Name<span id = 'AlpsNameArrow'>‌‌ </span></th>
-	<th width = '10%' height = '10%' onclick = 'sortTable(2, AlpsSwitchTable)'>Type<span id = 'AlpsTypeArrow'>‌‌ </span></th>
-    <th width = '18%' height = '18%' onclick = 'sortTable(3, AlpsSwitchTable)'>Force<span id = 'AlpsForceArrow'>‌‌ </span></th>
+    <th width = '18%' height = '18%' onclick = 'sortTable(0, AlpsSwitchTable)' class = 'menu'>Manufacturer<span id = 'AlpsManufacturerArrow'>‌‌▼</span><span class = 'menutooltip'>Click here to sort table by Manufacturer</span></th>
+    <th width = '16%' height = '16%' onclick = 'sortTable(1, AlpsSwitchTable)' class = 'menu'>Name<span id = 'AlpsNameArrow'>‌‌ </span><span class = 'menutooltip'>Click here to sort table by Name</span></th>
+	<th width = '10%' height = '10%' onclick = 'sortTable(2, AlpsSwitchTable)' class = 'menu'>Type<span id = 'AlpsTypeArrow'>‌‌ </span><span class = 'menutooltip'>Click here to sort table by Type</span></th>
+    <th width = '18%' height = '18%' onclick = 'sortTable(3, AlpsSwitchTable)' class = 'menu'>Force<span id = 'AlpsForceArrow'>‌‌ </span><span class = 'menutooltip'>Click here to sort table by Force</span></th>
 	<th width = '18%' height = '18%'>Image</th>
   </tr>
 </table>

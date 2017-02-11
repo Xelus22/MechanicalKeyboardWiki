@@ -10,13 +10,18 @@ body{
 }
 
 /*Menu Icon */
-.menu {
+#menu {
     display: inline-block;
     cursor: pointer;
 	position:fixed;
 	z-index:10; 
 	top:15px;
 	left:15px;
+}
+.menu {
+
+    cursor: pointer;
+
 }
 
 /*Menu tool tip*/

@@ -13,10 +13,10 @@ is-parent: no
 <br>
 <table id = 'SwitchTable'>
 <tr>
-    <th width = '18%' height = '18%' onclick = 'sortTable(0, SwitchTable)'>Manufacturer<span id = 'MXManufacturerArrow'>‌‌▼</span></th>
-    <th width = '16%' height = '16%' onclick = 'sortTable(1, SwitchTable)'>Name<span id = 'MXNameArrow'>‌‌ </span></th>
-	<th width = '10%' height = '10%' onclick = 'sortTable(2, SwitchTable)'>Type<span id = 'MXTypeArrow'>‌‌ </span></th>
-    <th width = '18%' height = '18%' onclick = 'sortTable(3, SwitchTable)'>Force<span id = 'MXForceArrow'>‌‌ </span></th>
+    <th width = '18%' height = '18%' onclick = 'sortTable(0, SwitchTable)' class = 'menu'>Manufacturer<span id = 'MXManufacturerArrow'>‌‌▼</span><span class = 'menutooltip'>Click here to sort table by Manufacturer</span></th>
+    <th width = '16%' height = '16%' onclick = 'sortTable(1, SwitchTable)' class = 'menu'>Name<span id = 'MXNameArrow'>‌‌ </span><span class = 'menutooltip'>Click here to sort table by Name</span></th>
+	<th width = '10%' height = '10%' onclick = 'sortTable(2, SwitchTable)' class = 'menu'>Type<span id = 'MXTypeArrow'>‌‌ </span><span class = 'menutooltip'>Click here to sort table by Type</span></th>
+    <th width = '18%' height = '18%' onclick = 'sortTable(3, SwitchTable)' class = 'menu'>Force<span id = 'MXForceArrow'>‌‌ </span><span class = 'menutooltip'>Click here to sort table by Force</span></th>
 	<th width = '18%' height = '18%'>Image</th>
   </tr>
 </table>
