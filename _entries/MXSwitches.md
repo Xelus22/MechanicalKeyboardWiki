@@ -13,7 +13,7 @@ is-parent: no
 <br>
 <table id = 'SwitchTable'>
 <tr>
-    <th width = '18%' height = '18%' onclick = 'sortTable(0, SwitchTable)'>Manufacturer<span id = 'MXManufacturerArrow'>‌‌ </span></th>
+    <th width = '18%' height = '18%' onclick = 'sortTable(0, SwitchTable)'>Manufacturer<span id = 'MXManufacturerArrow'>‌‌▼</span></th>
     <th width = '16%' height = '16%' onclick = 'sortTable(1, SwitchTable)'>Name<span id = 'MXNameArrow'>‌‌ </span></th>
 	<th width = '10%' height = '10%' onclick = 'sortTable(2, SwitchTable)'>Type<span id = 'MXTypeArrow'>‌‌ </span></th>
     <th width = '18%' height = '18%' onclick = 'sortTable(3, SwitchTable)'>Force<span id = 'MXForceArrow'>‌‌ </span></th>
