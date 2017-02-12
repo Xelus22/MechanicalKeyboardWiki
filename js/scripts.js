@@ -16,6 +16,8 @@ var AlpsSwitchM;
 $(document).ready(function(){
 	//change the menu animation for UI purposes
 	document.getElementById('menu').classList.toggle('change'); 
+	document.getElementById('MXsecret').style.display = 'none';
+	document.getElementById('Alpssecret').style.display = 'none';
 	
 	//Firebase anonymous authentication
 	firebase.auth().signInAnonymously().then(function() {
@@ -27,13 +29,13 @@ $(document).ready(function(){
 		console.log(errorMessage);
 	});
 	
-	retrieveDatabase();
+	retrieveDatabase();  //counts how many items in the MX table
 	
 	$('#nav').onePageNav(); //go to page 1
 
-	$('a[href^="http"]').attr('target','_blank');
+	$('a[href^="http"]').attr('target','_blank'); //onclick nav, go to specific reference
 	
-	// MX swithc table
+	// Build MX switch table
 	firebase.database().ref().child('Switches').orderByChild('SwitchM').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
 		const SwitchTable = document.getElementById('SwitchTable');				//Define Switch table, add rows and columns to table
 		
@@ -57,7 +59,7 @@ $(document).ready(function(){
 		cell5.innerHTML = '<img src="'+Image+'"/>';
 	});	
 	
-	//alps table
+	//build alps table
 	
 	firebase.database().ref().child('Alps').orderByChild('SwitchM').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
 		const SwitchTable = document.getElementById('AlpsSwitchTable');				//Define Switch table, add rows and columns to table
@@ -292,4 +294,14 @@ document.getElementById('menu').onclick= function(){
 		document.getElementById('content').style.marginLeft = '320px' //content back to original size
 		document.getElementById('wrapper').style.maxWidth = '1500px';
     }	
+}
+
+var activated = 0;
+document.getElementById('Secret').onclick= function(){
+	if (activated == 0){
+		activated++
+		console.log('You have activated the secret menu');
+		document.getElementById('MXsecret').style.display = 'block';
+		document.getElementById('Alpssecret').style.display = 'block';
+	}
 }

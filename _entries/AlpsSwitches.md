@@ -27,7 +27,7 @@ SKBM switches are all clicky/tactile simplified.
 </table>
 
 <br>
-
+<div id = 'Alpssecret'>
 Add new or forgotten switches to the database here. 
 <br>
 
@@ -72,3 +72,4 @@ Note: For image link, please place in a direct link from imgur.
 	<td width = '5%'><button id = 'AlpsSubmit'>Submit</button></td>
  </tr>
 </table>
+</div>

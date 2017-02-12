@@ -22,7 +22,7 @@ is-parent: no
 </table>
 
 <br>
-
+<div id = 'MXsecret'>
 Add new or forgotten switches to the database here.
 <br>
 
@@ -67,3 +67,4 @@ Note: For image link, please place in a direct link from imgur.
 	<td width = '5%'><button id = 'Submit'>Submit</button></td>
  </tr>
 </table>
+</div>
