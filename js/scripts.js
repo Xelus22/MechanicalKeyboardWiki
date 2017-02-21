@@ -13,7 +13,21 @@ var AlpsForce;
 var AlpsForceType;
 var AlpsSwitchM;
 
+var arrayListHeaders = []
+var listh1 = document.getElementsByTagName('h1')
+var listh2 = document.getElementsByTagName('h2')
+var listh3 = document.getElementsByTagName('h3')
+var listh4 = document.getElementsByTagName('h4')
+
 $(document).ready(function(){
+	getListOfHeaders(listh1)
+	getListOfHeaders(listh2)
+	getListOfHeaders(listh3)
+	getListOfHeaders(listh4)
+	arrayListHeaders.sort()
+	console.log(arrayListHeaders)
+	binarySearch(arrayListHeaders, 'Introduction')
+
 	//change the menu animation for UI purposes
 	document.getElementById('menu').classList.toggle('change'); 
 	document.getElementById('MXsecret').style.display = 'none';
@@ -165,7 +179,7 @@ document.getElementById('AlpsSubmit').onclick= function(){
 	}
 }
 
-//sorting table
+//sorting table, bubble sort
 function sortTable(n,TableID){
 	var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	console.log(n, TableID)
@@ -242,7 +256,7 @@ function sortTable(n,TableID){
 			  }
 			}
       	}
-	  if (shouldSwitch) {
+	  if (shouldSwitch == true) {
 		/*If a switch has been marked, make the switch and mark that a switch has been done:*/
 		rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 		switching = true;
@@ -253,7 +267,7 @@ function sortTable(n,TableID){
 		if (switchcount == 0 && dir == "asc") {
 		  dir = "desc";
 		  switching = true;
-		  if (TableID.id == 'SwitchTable'){
+		  if (TableID.id == 'SwitchTable'){										//change the visual representation of the sorting algorithm
 				if (n == 0){
 			  	document.getElementById("MXManufacturerArrow").innerHTML = '▲'
 				} else if (n == 1){
@@ -303,5 +317,36 @@ document.getElementById('Secret').onclick= function(){
 		console.log('You have activated the secret menu');
 		document.getElementById('MXsecret').style.display = 'block';
 		document.getElementById('Alpssecret').style.display = 'block';
+	}
+}
+
+//Binary Search
+function binarySearch(array, value){
+
+    var startIndex  = 0,
+        stopIndex   = array.length - 1,
+        middle      = Math.floor((stopIndex + startIndex)/2);
+
+    while(array[middle] != value && startIndex < stopIndex){
+
+        //adjust search area
+        if (value < array[middle]){
+            stopIndex = middle - 1;
+        } else if (value > array[middle]){
+            startIndex = middle + 1;
+        }
+
+        //recalculate middle
+        middle = Math.floor((stopIndex + startIndex)/2);
+    }
+    //make sure it's the right value
+	console.log(middle);
+    return (array[middle] != value) ? -1 : middle;
+}
+
+function getListOfHeaders(list){	
+	for (var k = 0; k < list.length; k++){
+		var pushIt = list[k].innerHTML
+		arrayListHeaders.push(pushIt)
 	}
 }
