@@ -26,7 +26,7 @@ $(document).ready(function(){
 	getListOfHeaders(listh4)
 	arrayListHeaders.sort()
 	console.log(arrayListHeaders)
-	binarySearch(arrayListHeaders, 'Introduction')
+
 
 	//change the menu animation for UI purposes
 	document.getElementById('menu').classList.toggle('change'); 
@@ -289,7 +289,7 @@ function sortTable(n,TableID){
 				document.getElementById("AlpsForceArrow").innerHTML = '▲'
 				}
 			  }
-		}
+		 }
       }
    }	
 }
@@ -321,32 +321,35 @@ document.getElementById('Secret').onclick= function(){
 }
 
 //Binary Search
-function binarySearch(array, value){
-
-    var startIndex  = 0,
-        stopIndex   = array.length - 1,
-        middle      = Math.floor((stopIndex + startIndex)/2);
-
-    while(array[middle] != value && startIndex < stopIndex){
-
-        //adjust search area
-        if (value < array[middle]){
-            stopIndex = middle - 1;
-        } else if (value > array[middle]){
-            startIndex = middle + 1;
-        }
-
-        //recalculate middle
-        middle = Math.floor((stopIndex + startIndex)/2);
-    }
-    //make sure it's the right value
+function binarySearch(){
+	var array = arrayListHeaders
+    var startIndex  = 0;
+    var stopIndex = array.length - 1;
+    var middle = Math.floor((stopIndex + startIndex)/2);
+	var value = document.getElementById('myInput').value.replace(/\s/g, '').toLowerCase()
+	var counter = value.length
+	var counter1 = 0
+	var counter2 = counter1 + value.length
+	
+	while(array[middle].substring(0,counter) != value && startIndex < stopIndex){				
+		//adjust search area
+			if (value < array[middle]){
+				stopIndex = middle - 1;
+			} else if (value > array[middle]){
+				startIndex = middle + 1;
+			}
+						
+		//recalculate middle
+		middle = Math.floor((stopIndex + startIndex)/2);
+	}
+	//make sure it's the right value
 	console.log(middle);
-    return (array[middle] != value) ? -1 : middle;
+	return (array[middle] != value) ? -1 : middle;
 }
 
 function getListOfHeaders(list){	
 	for (var k = 0; k < list.length; k++){
-		var pushIt = list[k].innerHTML
+		var pushIt = list[k].innerHTML.replace(/\s/g, '').toLowerCase()
 		arrayListHeaders.push(pushIt)
 	}
 }
