@@ -14,6 +14,7 @@ var AlpsForceType;
 var AlpsSwitchM;
 
 var arrayListHeaders = []
+
 var listh1 = document.getElementsByTagName('h1')
 var listh2 = document.getElementsByTagName('h2')
 var listh3 = document.getElementsByTagName('h3')
@@ -321,35 +322,65 @@ document.getElementById('Secret').onclick= function(){
 }
 
 //Binary Search
-function binarySearch(){
+function binarySearch(event){
 	var array = arrayListHeaders
     var startIndex  = 0;
     var stopIndex = array.length - 1;
     var middle = Math.floor((stopIndex + startIndex)/2);
 	var value = document.getElementById('myInput').value.replace(/\s/g, '').toLowerCase()
 	var counter = value.length
-	var counter1 = 0
-	var counter2 = counter1 + value.length
+	var x = event.which || event.keyCode;
 	
-	while(array[middle].substring(0,counter) != value && startIndex < stopIndex){				
-		//adjust search area
-			if (value < array[middle]){
-				stopIndex = middle - 1;
-			} else if (value > array[middle]){
-				startIndex = middle + 1;
+	if (value == ""){
+		for (i = 0; i < array.length; i++){
+		  document.getElementById('+' + array[i]).style.display = "block"
+		}
+	} else if (x == 8 || x == 46){
+		console.log('test')
+		for (m = 0; m < array.length; m++){
+			document.getElementById('+' + array[m]).style.display = "block"
+			if (array[m].toLowerCase().replace(/\s/g, '').substring(0,counter) == value){
+				document.getElementById('+' + array[m]).style.display = "block"
+			} else {
+				document.getElementById('+' + array[m]).style.display = "none";
 			}
-						
-		//recalculate middle
-		middle = Math.floor((stopIndex + startIndex)/2);
+		}
+	} else {
+	  while(array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter).search(value) == -1 && startIndex < stopIndex){	
+	  	console.log(middle)			
+		  //adjust search area
+			  if (value < array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
+				  stopIndex = middle - 1;
+			  } else if (value > array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
+				  startIndex = middle + 1;
+			  }
+						  
+		  //recalculate middle
+		  middle = Math.floor((stopIndex + startIndex)/2);
+	  }
+	  //make sure it's the right value
+	  if (array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) == value){
+		console.log('position: ' + middle)
+		var tempVariable = array[middle]
+		array.splice(middle, 1)
+		  for (j = 0; j < array.length; j++){
+			document.getElementById('+' + array[j]).style.display = "none";
+		  }
+		array.push(tempVariable)
+	  	array.sort()	  
+	  } else {
+		console.log('not found')
+		for (i = 0; i < array.length; i++){
+		  document.getElementById('+' + array[i]).style.display = "block"
+		}
+	  }
+	  return (array[middle] != value) ? -1 : middle;
 	}
-	//make sure it's the right value
-	console.log(middle);
-	return (array[middle] != value) ? -1 : middle;
 }
 
 function getListOfHeaders(list){	
 	for (var k = 0; k < list.length; k++){
-		var pushIt = list[k].innerHTML.replace(/\s/g, '').toLowerCase()
+		var pushIt = list[k].innerHTML
 		arrayListHeaders.push(pushIt)
 	}
 }
