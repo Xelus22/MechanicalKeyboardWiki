@@ -328,6 +328,7 @@ function binarySearch(event){
     var stopIndex = array.length - 1;
     var middle = Math.floor((stopIndex + startIndex)/2);
 	var value = document.getElementById('myInput').value.replace(/\s/g, '').toLowerCase()
+	
 	var counter = value.length
 	var x = event.which || event.keyCode;
 	
@@ -346,8 +347,7 @@ function binarySearch(event){
 			}
 		}
 	} else {
-	  while(array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter).search(value) == -1 && startIndex < stopIndex){	
-	  	console.log(middle)			
+	  while(array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) != value && startIndex < stopIndex){		
 		  //adjust search area
 			  if (value < array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
 				  stopIndex = middle - 1;
