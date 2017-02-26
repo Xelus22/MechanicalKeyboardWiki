@@ -322,65 +322,77 @@ document.getElementById('Secret').onclick= function(){
 }
 
 //Binary Search
-function binarySearch(event){
-	var array = arrayListHeaders
-    var startIndex  = 0;
-    var stopIndex = array.length - 1;
-    var middle = Math.floor((stopIndex + startIndex)/2);
-	var value = document.getElementById('myInput').value.replace(/\s/g, '').toLowerCase()
+function binarySearch(){
 	
-	var counter = value.length
-	var x = event.which || event.keyCode;
+
+	var array = arrayListHeaders											//defines array of list headers ID
+    var startIndex  = 0;													//start index of binary search, MINIMUM value
+    var stopIndex = array.length - 1;										//last index of binary serach array, max value
+    var middle = Math.floor((stopIndex + startIndex)/2);					//*middle of array*/
+	var input = document.getElementById('myInput').value.replace(/\s/g, '').toLowerCase() //changes the user input to replace spaces and all lower case
+	var moreThanOne = 0														//if there is more than one of the same letter, then increase (look in code below)
+	var moreThanOneArray = []												//add the ID's of those that have the same starting x no. of letters
+	var counter = input.length												//how long the user input's string is
 	
-	if (value == ""){
-		for (i = 0; i < array.length; i++){
+	function navAllShow(){
+	for (i = 0; i < array.length; i++){
 		  document.getElementById('+' + array[i]).style.display = "block"
 		}
-	} else if (x == 8 || x == 46){
-		console.log('test')
-		for (m = 0; m < array.length; m++){
-			document.getElementById('+' + array[m]).style.display = "block"
-			if (array[m].toLowerCase().replace(/\s/g, '').substring(0,counter) == value){
-				document.getElementById('+' + array[m]).style.display = "block"
-			} else {
-				document.getElementById('+' + array[m]).style.display = "none";
-			}
+	}
+	
+	for (var m = 0; m < array.length; m++){ 								//loops to check if there is more than one value that the user has input. e.g. 2 items starting with the same letter
+		if (array[m].toLowerCase().replace(/\s/g, '').substring(0,counter) == input){
+			moreThanOneArray.push(array[m])									//add to the moreThanOneArray if user input and the item in array has the same characters
+		}
+	}
+
+	if (input == ""){														//checks if the input box is blank
+		navAllShow()
+	} else if (moreThanOneArray.length > 1){							//if there are more than one items in the original array with the same characters
+		for (var p = 0; p < array.length; p++){
+			document.getElementById('+' + array[p]).style.display = "none" 	//make all the items in the side nav on screen disappear
+		}
+		console.log('allhidden')
+		for (var h = 0; h < moreThanOneArray.length; h++){					//make all items in the moreThenOneArray be shown.
+			console.log('morethanone')								
+			document.getElementById('+' + moreThanOneArray[h]).style.display = "block" 
 		}
 	} else {
-	  while(array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) != value && startIndex < stopIndex){		
+	  while(array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) != input && startIndex < stopIndex){	//binary search if the first letters of the array is equal the user input	
 		  //adjust search area
-			  if (value < array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
+			  if (input < array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
 				  stopIndex = middle - 1;
-			  } else if (value > array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
+			  } else if (input > array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
 				  startIndex = middle + 1;
 			  }
 						  
 		  //recalculate middle
 		  middle = Math.floor((stopIndex + startIndex)/2);
 	  }
-	  //make sure it's the right value
-	  if (array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) == value){
+
+	  if (array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) == input){ //make sure it's the right value
 		console.log('position: ' + middle)
-		var tempVariable = array[middle]
-		array.splice(middle, 1)
-		  for (j = 0; j < array.length; j++){
-			document.getElementById('+' + array[j]).style.display = "none";
+		document.getElementById('+' + array[middle]).style.display = "block";		//show this found value
+		var foundValue = array[middle]												//make a variable equal to the found value
+		array.splice(middle, 1)														//delete this found value from the array
+		  for (j = 0; j < array.length; j++){											
+			document.getElementById('+' + array[j]).style.display = "none";			//hide all the values except the found value in binary search
 		  }
-		array.push(tempVariable)
-	  	array.sort()	  
+		array.push(foundValue).sort()												//re-add the found variable back to the array and sort
+  
 	  } else {
 		console.log('not found')
-		for (i = 0; i < array.length; i++){
-		  document.getElementById('+' + array[i]).style.display = "block"
-		}
+		
 	  }
-	  return (array[middle] != value) ? -1 : middle;
+	  return (array[middle] != input) ? -1 : middle;				  //make sure it's the right value
 	}
 }
 
-function getListOfHeaders(list){	
+function getListOfHeaders(list){	//gets all the values of the items in the 'list' which is the headers of the HTML files and add  them all to an array
 	for (var k = 0; k < list.length; k++){
 		var pushIt = list[k].innerHTML
 		arrayListHeaders.push(pushIt)
 	}
 }
+
+
