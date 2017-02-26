@@ -377,12 +377,13 @@ function binarySearch(){
 		array.splice(middle, 1)														//delete this found value from the array
 		  for (j = 0; j < array.length; j++){											
 			document.getElementById('+' + array[j]).style.display = "none";			//hide all the values except the found value in binary search
-		  }
-		array.push(foundValue).sort()												//re-add the found variable back to the array and sort
+		  }	
+		array.push(foundValue)														//re-add the found variable back to the array and sort
+		array.sort()												
   
 	  } else {
 		console.log('not found')
-		
+		navAllShow()
 	  }
 	  return (array[middle] != input) ? -1 : middle;				  //make sure it's the right value
 	}
