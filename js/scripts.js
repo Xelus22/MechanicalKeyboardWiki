@@ -99,8 +99,6 @@ $(document).ready(function(){
 		cell5.innerHTML = '<img src="'+AlpsImage+'"/>';
 	});	
 });
-// Get a reference to the database service
- 	const database = firebase.database();
 
 //Function to write MX data to the database	
 function writeSwitchData(switchManufacturer, name, types, force, forceType, imageUrl) {
