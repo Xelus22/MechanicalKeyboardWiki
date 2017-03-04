@@ -23,46 +23,46 @@ LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.
 	
 	<tr>
 		<td>104 Key ANSI</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_ansi.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_ansi.JPG"/></td>
 	</tr>
 	<tr>
 		<td>104 Key ANSI Big Ass Enter</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_ansi_bigass.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_ansi_bigass.JPG"/></td>
 	</tr>
 	<tr>
 		<td>105 Key ISO</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_iso.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_iso.JPG"/></td>
 	</tr>
 	<tr>
 		<td>87 Key ANSI (aka TKL)</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/tkl_ansi.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/tkl_ansi.JPG"/></td>
 	</tr>
 	<tr>
 		<td>87 Key ISO (aka TKL)</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/tkl_iso.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/tkl_iso.JPG"/></td>
 	</tr>	
 	<tr>
 		<td>84 Key ANSI (aka 75%)</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/75_ansi.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/75_ansi.JPG"/></td>
 	</tr>
 	<tr>
 		<td>84 Key ISO (aka 75%)</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/75_iso.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/75_iso.JPG"/></td>
 	</tr>
 	<tr>
 		<td>67 Key ANSI (aka Clueboard)</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/clueboard_ansi.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/clueboard_ansi.JPG"/></td>
 	</tr>
 	<tr>
 		<td>68 Key ISO (aka Clueboard)</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/clueboard_iso.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/clueboard_iso.JPG"/></td>
 	</tr>	
 	<tr>
 		<td>61 Key ANSI (aka 60%)</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/60_ansi.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/60_ansi.JPG"/></td>
 	</tr>
 	<tr>
 		<td>61 Key ISO (aka 60%)</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/60_iso.jpg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/60_iso.JPG"/></td>
 	</tr>
 </table>
