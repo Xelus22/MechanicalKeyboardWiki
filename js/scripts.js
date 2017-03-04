@@ -1,10 +1,10 @@
 //Global Variables
-var Name;
-var Image;
-var Type;
-var Force;
-var ForceType;
-var SwitchM; 					//Switch Manufacturer
+var MXName;
+var MXImage;
+var MXType;
+var MXForce;
+var MXForceType;
+var MXSwitchM; 					//Switch Manufacturer
 
 var AlpsName;					//global variabels for Alps switches
 var AlpsImage;
@@ -27,7 +27,6 @@ $(document).ready(function(){
 	getListOfHeaders(listh4)
 	arrayListHeaders.sort()
 	console.log(arrayListHeaders)
-
 
 	//change the menu animation for UI purposes
 	document.getElementById('menu').classList.toggle('change'); 
@@ -54,37 +53,36 @@ $(document).ready(function(){
 	firebase.database().ref().child('Switches').orderByChild('SwitchM').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
 		const SwitchTable = document.getElementById('SwitchTable');				//Define Switch table, add rows and columns to table
 		
-		var Name = snap.child('Name').val();									//Get Name from database
-		var Image = snap.child('Picture').val()									//Get Picture from database
-		var Type = snap.child('Type').val()										//Get Type from database
-		var Force = snap.child('Force').val()					//Get Actuation Force from database
-		var ForceType = snap.child('ForceType').val()
-		var SwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
+		MXName = snap.child('Name').val();									//Get Name from database
+		MXImage = snap.child('Picture').val()									//Get Picture from database
+		MXType = snap.child('Type').val()										//Get Type from database
+		MXForce = snap.child('Force').val()					//Get Actuation Force from database
+		MXForceType = snap.child('ForceType').val()
+		MXSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
-		var row = SwitchTable.insertRow(-1);									//add data to table
+		var row = SwitchTable.insertRow(-1);									//add row to end of table table, hence the -1
   		var cell1 = row.insertCell(0);
     	var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
 		var cell4 = row.insertCell(3);
 		var cell5 = row.insertCell(4);
-		cell1.innerHTML = SwitchM;
-		cell2.innerHTML = Name;
-		cell3.innerHTML = Type;
-		cell4.innerHTML = Force + ' ' +ForceType + ' Force';
-		cell5.innerHTML = '<img src="'+Image+'"/>';
+		cell1.innerHTML = MXSwitchM;
+		cell2.innerHTML = MXName;
+		cell3.innerHTML = MXType;
+		cell4.innerHTML = MXForce + ' ' +MXForceType + ' Force';
+		cell5.innerHTML = '<img src="'+MXImage+'"/>';
 	});	
 	
 	//build alps table
-	
 	firebase.database().ref().child('Alps').orderByChild('SwitchM').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
 		const SwitchTable = document.getElementById('AlpsSwitchTable');				//Define Switch table, add rows and columns to table
 		
-		var AlpsName = snap.child('Name').val();									//Get Name from database
-		var AlpsImage = snap.child('Picture').val()									//Get Picture from database
-		var AlpsType = snap.child('Type').val()										//Get Type from database
-		var AlpsForce = snap.child('Force').val()					//Get Actuation Force from database
-		var AlpsForceType = snap.child('ForceType').val()
-		var AlpsSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
+		AlpsName = snap.child('Name').val();									//Get Name from database
+		AlpsImage = snap.child('Picture').val()									//Get Picture from database
+		AlpsType = snap.child('Type').val()										//Get Type from database
+		AlpsForce = snap.child('Force').val()					//Get Actuation Force from database
+		AlpsForceType = snap.child('ForceType').val()
+		AlpsSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
 		var row = SwitchTable.insertRow(-1);									//add data to table
   		var cell1 = row.insertCell(0);
@@ -138,12 +136,12 @@ firebase.database().ref().on('value', function(snapshot) {
 document.getElementById('Submit').onclick= function(){
 	var check = confirm("Please check everything is correct. You will not be able to change it once you press OK")
 	if (check == true){
-		Name = document.getElementById('Name').value;
-		Image = document.getElementById('Image').value;
-		Type = document.getElementById('Type').value;
-		Force = document.getElementById('Force').value;
-		SwitchM = document.getElementById('SwitchM').value;
-		ForceType = document.getElementById('ForceType').value;
+		MXName = document.getElementById('Name').value;
+		MXImage = document.getElementById('Image').value;
+		MXType = document.getElementById('Type').value;
+		MXForce = document.getElementById('Force').value;
+		MXSwitchM = document.getElementById('SwitchM').value;
+		MXForceType = document.getElementById('ForceType').value;
 		
 		writeSwitchData(SwitchM, Name, Type, Force, ForceType, Image);	
 		
@@ -180,7 +178,7 @@ document.getElementById('AlpsSubmit').onclick= function(){
 
 //sorting table, bubble sort
 function sortTable(n,TableID){
-	var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+	var table, rowsSort, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	console.log(n, TableID)
   	table = document.getElementById(TableID.id);
   	switching = true;
@@ -188,13 +186,13 @@ function sortTable(n,TableID){
   	/*Make a loop that will continue until no switching has been done:*/
   	while (switching) {
     	switching = false;
-    	rows = table.getElementsByTagName("TR");
+    	rowsSort = table.getElementsByTagName("TR");
     	/*Loop through all table rows (except the first, which contains table headers):*/
-    	for (i = 1; i < (rows.length - 1); i++) {
+    	for (i = 1; i < (rowsSort.length - 1); i++) {
 		  //start by saying there should be no switching:
 		  shouldSwitch = false;
-		  x = rows[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
-		  y = rows[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+		  x = rowsSort[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+		  y = rowsSort[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
 		  if (dir == "asc") {
 			  if (TableID.id == 'SwitchTable'){
 				if (n == 0){
@@ -257,40 +255,40 @@ function sortTable(n,TableID){
       	}
 	  if (shouldSwitch == true) {
 		/*If a switch has been marked, make the switch and mark that a switch has been done:*/
-		rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		rowsSort[i].parentNode.insertBefore(rowsSort[i + 1], rowsSort[i]);
 		switching = true;
 		//Each time a switch is done, increase this count by 1:
 		switchcount ++;      
 	  } else {
 		/*If no switching has been done AND the direction is "asc",set the direction to "desc" and run the while loop again.*/
 		if (switchcount == 0 && dir == "asc") {
-		  dir = "desc";
-		  switching = true;
-		  if (TableID.id == 'SwitchTable'){										//change the visual representation of the sorting algorithm
+			dir = "desc";
+			switching = true;
+			if (TableID.id == 'SwitchTable'){										//change the visual representation of the sorting algorithm
 				if (n == 0){
-			  	document.getElementById("MXManufacturerArrow").innerHTML = '▲'
-				} else if (n == 1){
-				document.getElementById("MXNameArrow").innerHTML = '▲'
-				} else if (n == 2){
-				document.getElementById("MXTypeArrow").innerHTML = '▲'
-				}else if (n == 3){
-				document.getElementById("MXForceArrow").innerHTML = '▲'
+					document.getElementById("MXManufacturerArrow").innerHTML = '▲'
+					} else if (n == 1){
+					document.getElementById("MXNameArrow").innerHTML = '▲'
+					} else if (n == 2){
+					document.getElementById("MXTypeArrow").innerHTML = '▲'
+					}else if (n == 3){
+					document.getElementById("MXForceArrow").innerHTML = '▲'
+					}
+				  }
+				  else if (TableID.id == 'AlpsSwitchTable'){
+					if (n == 0){
+					document.getElementById("AlpsManufacturerArrow").innerHTML = '▲'
+					} else if (n == 1){
+					document.getElementById("AlpsNameArrow").innerHTML = '▲'
+					} else if (n == 2){
+					document.getElementById("AlpsTypeArrow").innerHTML = '▲'
+					}else if (n == 3){
+					document.getElementById("AlpsForceArrow").innerHTML = '▲'
+					}
 				}
-			  }
-			  else if (TableID.id == 'AlpsSwitchTable'){
-				if (n == 0){
-			  	document.getElementById("AlpsManufacturerArrow").innerHTML = '▲'
-				} else if (n == 1){
-				document.getElementById("AlpsNameArrow").innerHTML = '▲'
-				} else if (n == 2){
-				document.getElementById("AlpsTypeArrow").innerHTML = '▲'
-				}else if (n == 3){
-				document.getElementById("AlpsForceArrow").innerHTML = '▲'
-				}
-			  }
-		 }
-      }
-   }	
+			}
+		}
+	}	
 }
 
 //closing and opening of the sidebar menu with the animation line
@@ -321,8 +319,6 @@ document.getElementById('Secret').onclick= function(){
 
 //Binary Search
 function binarySearch(){
-	
-
 	var array = arrayListHeaders											//defines array of list headers ID
     var startIndex  = 0;													//start index of binary search, MINIMUM value
     var stopIndex = array.length - 1;										//last index of binary serach array, max value
@@ -363,7 +359,6 @@ function binarySearch(){
 			  } else if (input > array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
 				  startIndex = middle + 1;
 			  }
-						  
 		  //recalculate middle
 		  middle = Math.floor((stopIndex + startIndex)/2);
 	  }
