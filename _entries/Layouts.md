@@ -59,12 +59,12 @@ LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.
 	</tr>
 	<tr>
 		<td>Clueboard ANSI</td>
-		<td>65%</td>
+		<td>66%</td>
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/clueboard_ansi.JPG"/></td>
 	</tr>
 	<tr>
 		<td>Clueboard ISO</td>
-		<td>65%</td>
+		<td>66%</td>
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/clueboard_iso.JPG"/></td>
 	</tr>	
 	<tr>

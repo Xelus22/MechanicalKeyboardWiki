@@ -260,6 +260,7 @@ function sortTable(n,TableID){
 		//Each time a switch is done, increase this count by 1:
 		switchcount ++;      
 	  } else {
+		 console.log(switchcount)
 		/*If no switching has been done AND the direction is "asc",set the direction to "desc" and run the while loop again.*/
 		if (switchcount == 0 && dir == "asc") {
 			dir = "desc";
@@ -384,8 +385,7 @@ function binarySearch(){
 
 function getListOfHeaders(list){	//gets all the values of the items in the 'list' which is the headers of the HTML files and add  them all to an array
 	for (var k = 0; k < list.length; k++){
-		var pushIt = list[k].innerHTML
-		arrayListHeaders.push(pushIt)
+		arrayListHeaders.push(list[k].innerHTML)
 	}
 }
 
