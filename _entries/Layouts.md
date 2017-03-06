@@ -39,6 +39,11 @@ LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_iso.JPG"/></td>
 	</tr>
 	<tr>
+		<td>Ergodox (for extensive information, head to <a href = 'www.ergodox.io'>ergodox.io</a></td>
+		<td>N/A</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/ergodox.jpg"/></td>
+	</tr>
+	<tr>
 		<td>96 ANSI</td>
 		<td>90%</td>
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/96_ansi.jpg"/></td>
@@ -112,5 +117,60 @@ LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.
 		<td>Preonic</td>
 		<td>50%</td>
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/preonic.jpg"/></td>
+	</tr>
+	<tr>
+		<td>Planck</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/planck.jpg"/></td>
+	</tr>
+	<tr>
+		<td>Bantam44</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/bantam44.jpg"/></td>
+	</tr>
+	<tr>
+		<td>Sebright</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/sebright.jpg"/></td>
+	</tr>
+	<tr>
+		<td>Minivan</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/minivan.jpg"/></td>
+	</tr>
+	<tr>
+		<td>Minivan Arrows Layout</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/minivan_arrow.jpg"/></td>
+	</tr>
+	<tr>
+		<td>Golbat</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/golbat.jpg"/></td>
+	</tr>
+	<tr>
+		<td>22 Mobik</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/22_mobik.jpg"/></td>
+	</tr>
+	<tr>
+		<td>Minorca</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/minorca.jpg"/></td>
+	</tr>
+	<tr>
+		<td>Vortex Core</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/vortex_core.jpg"/></td>
+	</tr>
+	<tr>
+		<td>JD45</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/jd45.jpg"/></td>
+	</tr>
+	<tr>
+		<td>JD40</td>
+		<td>40%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/jd40.jpg"/></td>
 	</tr>
 </table>
