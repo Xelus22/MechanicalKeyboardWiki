@@ -39,7 +39,7 @@ LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_iso.JPG"/></td>
 	</tr>
 	<tr>
-		<td>Ergodox (for extensive information, head to <a href = 'www.ergodox.io'>ergodox.io</a></td>
+		<td>Ergodox (for extensive information, head to <a href = 'https://www.ergodox.io'>ergodox.io</a>, made by RobotMaxtron)</td>
 		<td>N/A</td>
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/ergodox.jpg"/></td>
 	</tr>
