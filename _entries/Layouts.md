@@ -12,7 +12,8 @@ is-parent: no
 LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.com'>keychatter.com</a>. 
 
 <br>
-<strong>NOTE: This will only cover more 'mainstream' layouts. Not all layouts will be covered (e.g. some vintage keyboards)
+<strong>NOTE: This will only cover more 'mainstream' layouts. Not all layouts will be covered (e.g. some vintage keyboards). There will also be several variations of some layouts that will not shown.
+<br>
 <br>
 
 <table id = 'LayoutsSwitchTable'>
@@ -37,6 +38,26 @@ LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.
 		<td>100%</td>
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/fullsize_iso.JPG"/></td>
 	</tr>
+	<tr>
+		<td>96 ANSI</td>
+		<td>90%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/96_ansi.jpg"/></td>
+	</tr>
+	<tr>
+		<td>96 ISO</td>
+		<td>90%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/96_iso.jpeg"/></td>
+	</tr>	
+	<tr>
+		<td>CoolerMaster Quickfire TK ANSI</td>
+		<td>90%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/90_ansi.jpg"/></td>
+	</tr>
+	<tr>
+		<td>CoolerMaster Quickfire TK ISO</td>
+		<td>90%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/90_iso.jpg"/></td>
+	</tr>	
 	<tr>
 		<td>TKL ANSI</td>
 		<td>80%</td>
@@ -68,6 +89,16 @@ LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/clueboard_iso.JPG"/></td>
 	</tr>	
 	<tr>
+		<td>Neutrino/Whitefox/Redscarf68 ANSI</td>
+		<td>65%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/65_ansi.jpg"/></td>
+	</tr>
+	<tr>
+		<td>Neutrino/Whitefox/Redscarf68 ISO</td>
+		<td>65%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/65_iso.jpg"/></td>
+	</tr>
+	<tr>
 		<td>60% ANSI</td>
 		<td>60%</td>
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/60_ansi.JPG"/></td>
@@ -76,5 +107,10 @@ LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.
 		<td>60% ISO</td>
 		<td>60%</td>
 		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/60_iso.JPG"/></td>
+	</tr>
+	<tr>
+		<td>Preonic</td>
+		<td>50%</td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/preonic.jpg"/></td>
 	</tr>
 </table>
