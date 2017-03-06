@@ -46,7 +46,7 @@ LivingSpeedBump is the community celebrity over at <a href = 'http://keychatter.
 	<tr>
 		<td>96 ISO</td>
 		<td>90%</td>
-		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/96_iso.jpeg"/></td>
+		<td><img src="https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/96_iso.jpg"/></td>
 	</tr>	
 	<tr>
 		<td>CoolerMaster Quickfire TK ANSI</td>
