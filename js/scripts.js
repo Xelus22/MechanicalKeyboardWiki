@@ -134,8 +134,7 @@ firebase.database().ref().on('value', function(snapshot) {
 
 //Submit new switch MX data
 document.getElementById('Submit').onclick= function(){
-	var check = confirm("Please check everything is correct. You will not be able to change it once you press OK")
-	if (check == true){
+	if (confirm("Please check everything is correct. You will not be able to change it once you press OK")){
 		MXName = document.getElementById('Name').value;
 		MXImage = document.getElementById('Image').value;
 		MXType = document.getElementById('Type').value;
@@ -255,7 +254,7 @@ function sortTable(n,TableID){
       	}
 	  if (shouldSwitch == true) {
 		/*If a switch has been marked, make the switch and mark that a switch has been done:*/
-		rowsSort[i].parentNode.insertBefore(rowsSort[i + 1], rowsSort[i]);
+		rowsSort[i].parentNode.insertBefore(rowsSort[i + 1], rowsSort[i]); //if should switch, then move the row that is less than the row above, to above that row
 		switching = true;
 		//Each time a switch is done, increase this count by 1:
 		switchcount ++;      
@@ -330,7 +329,7 @@ function binarySearch(){
 	var counter = input.length												//how long the user input's string is
 	
 	function navAllShow(){
-	for (i = 0; i < array.length; i++){
+		for (i = 0; i < array.length; i++){
 		  document.getElementById('+' + array[i]).style.display = "block"
 		}
 	}
