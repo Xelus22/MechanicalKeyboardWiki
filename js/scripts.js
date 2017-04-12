@@ -1,39 +1,53 @@
-//Global Variables
-var MXName;
-var MXImage;
-var MXType;
-var MXForce;
-var MXForceType;
-var MXSwitchM; 					//Switch Manufacturer
-
-var AlpsName;					//global variabels for Alps switches
-var AlpsImage;
-var AlpsType;
-var AlpsForce;
-var AlpsForceType;
-var AlpsSwitchM;
-
-var arrayListHeaders = []
-
-var listh1 = document.getElementsByTagName('h1')
-var listh2 = document.getElementsByTagName('h2')
-var listh3 = document.getElementsByTagName('h3')
-var listh4 = document.getElementsByTagName('h4')
-
 $(document).ready(function(){
-	getListOfHeaders(listh1)
-	getListOfHeaders(listh2)
-	getListOfHeaders(listh3)
-	getListOfHeaders(listh4)
-	arrayListHeaders.sort()
-	console.log(arrayListHeaders)
 
 	//change the menu animation for UI purposes
 	document.getElementById('menu').classList.toggle('change'); 
 	document.getElementById('MXsecret').style.display = 'none';
 	document.getElementById('Alpssecret').style.display = 'none';
 	
-	//Firebase anonymous authentication
+	AnonymousLogin();
+	
+	retrieveDatabase();  //counts how many items in the MX table
+	
+	$('#nav').onePageNav(); //go to page 1/top of the page
+
+	$('a[href^="http"]').attr('target','_blank'); //onclick nav, go to specific reference
+
+	getListOfHeaders();
+	
+	BuildMXTable()
+	
+	BuildAlpsTable();
+	
+});
+
+//closing and opening of the sidebar menu with the animation line
+document.getElementById('menu').onclick= function(){
+	document.getElementById('menu').classList.toggle('change');  //animate the menu button
+	var div = document.getElementById('overview');
+    if (div.style.display !== 'none') {
+        div.style.display = 'none';  							 //close the sidebar
+		document.getElementById('content').style.marginLeft = '0'
+		document.getElementById('wrapper').style.maxWidth = '1000px';
+		    }
+    else {
+        div.style.display = 'block';							 //open the sidebar
+		document.getElementById('content').style.marginLeft = '320px' //content back to original size
+		document.getElementById('wrapper').style.maxWidth = '1500px';
+    }	
+}
+
+var activated = 0;
+document.getElementById('Secret').onclick= function(){
+	if (activated == 0){
+		activated++
+		console.log('You have activated the secret menu');
+		document.getElementById('MXsecret').style.display = 'block';
+		document.getElementById('Alpssecret').style.display = 'block';
+	}
+}
+
+function AnonymousLogin(){ 			//anonymous login and authentication to Firebase Database 
 	firebase.auth().signInAnonymously().then(function() {
 		console.log('Logged in as Anonymous!')
 		}).catch(function(error) {
@@ -42,23 +56,19 @@ $(document).ready(function(){
 		console.log(errorCode);
 		console.log(errorMessage);
 	});
-	
-	retrieveDatabase();  //counts how many items in the MX table
-	
-	$('#nav').onePageNav(); //go to page 1
+}
 
-	$('a[href^="http"]').attr('target','_blank'); //onclick nav, go to specific reference
-	
+function BuildMXTable(){
 	// Build MX switch table
 	firebase.database().ref().child('Switches').orderByChild('SwitchM').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
 		const SwitchTable = document.getElementById('SwitchTable');				//Define Switch table, add rows and columns to table
 		
-		MXName = snap.child('Name').val();									//Get Name from database
-		MXImage = snap.child('Picture').val()									//Get Picture from database
-		MXType = snap.child('Type').val()										//Get Type from database
-		MXForce = snap.child('Force').val()					//Get Actuation Force from database
-		MXForceType = snap.child('ForceType').val()
-		MXSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
+		var MXName = snap.child('Name').val();									//Get Name from database
+		var MXImage = snap.child('Picture').val()									//Get Picture from database
+		var MXType = snap.child('Type').val()										//Get Type from database
+		var MXForce = snap.child('Force').val()					//Get Actuation Force from database
+		var MXForceType = snap.child('ForceType').val()
+		var MXSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
 		var row = SwitchTable.insertRow(-1);									//add row to end of table table, hence the -1
   		var cell1 = row.insertCell(0);
@@ -72,17 +82,19 @@ $(document).ready(function(){
 		cell4.innerHTML = MXForce + ' ' +MXForceType + ' Force';
 		cell5.innerHTML = '<img src="'+MXImage+'"/>';
 	});	
-	
+}
+
+function BuildAlpsTable() {
 	//build alps table
 	firebase.database().ref().child('Alps').orderByChild('SwitchM').on('child_added', snap =>{ 		//loop by firebase code to get each child data and put them into a table
 		const SwitchTable = document.getElementById('AlpsSwitchTable');				//Define Switch table, add rows and columns to table
 		
-		AlpsName = snap.child('Name').val();									//Get Name from database
-		AlpsImage = snap.child('Picture').val()									//Get Picture from database
-		AlpsType = snap.child('Type').val()										//Get Type from database
-		AlpsForce = snap.child('Force').val()					//Get Actuation Force from database
-		AlpsForceType = snap.child('ForceType').val()
-		AlpsSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
+		var AlpsName = snap.child('Name').val();									//Get Name from database
+		var AlpsImage = snap.child('Picture').val()									//Get Picture from database
+		var AlpsType = snap.child('Type').val()										//Get Type from database
+		var AlpsForce = snap.child('Force').val()					//Get Actuation Force from database
+		var AlpsForceType = snap.child('ForceType').val()
+		var AlpsSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
 		var row = SwitchTable.insertRow(-1);									//add data to table
   		var cell1 = row.insertCell(0);
@@ -96,11 +108,11 @@ $(document).ready(function(){
 		cell4.innerHTML = AlpsForce + ' ' + AlpsForceType + ' Force';
 		cell5.innerHTML = '<img src="'+AlpsImage+'"/>';
 	});	
-});
+}
 
 //Function to write MX data to the database	
 function writeSwitchData(switchManufacturer, name, types, force, forceType, imageUrl) {
- 	   firebase.database().ref('Switches/' + switchManufacturer + name).set({
+ 	firebase.database().ref('Switches/' + switchManufacturer + name).set({
         Name: name,
    	 	Type: types,
     	Picture : imageUrl,
@@ -108,11 +120,12 @@ function writeSwitchData(switchManufacturer, name, types, force, forceType, imag
 		Force: force,
 		ForceType: forceType
   	});
+	alert('Written to MX database');
 }
 
 //Function to write ALPS data to the database	
 function writeAlpsSwitchData(switchManufacturer, name, types, force, forceType, imageUrl) {
- 	   firebase.database().ref('Alps/' + switchManufacturer + name).set({
+ 	firebase.database().ref('Alps/' + switchManufacturer + name).set({
         Name: name,
    	 	Type: types,
     	Picture : imageUrl,
@@ -120,6 +133,7 @@ function writeAlpsSwitchData(switchManufacturer, name, types, force, forceType, 
 		Force: force,
 		ForceType: forceType
   	});
+	alert('Written to Alps database');
 }
 
 //retrieve database
@@ -135,14 +149,14 @@ firebase.database().ref().on('value', function(snapshot) {
 //Submit new switch MX data
 document.getElementById('Submit').onclick= function(){
 	if (confirm("Please check everything is correct. You will not be able to change it once you press OK")){
-		MXName = document.getElementById('Name').value;
-		MXImage = document.getElementById('Image').value;
-		MXType = document.getElementById('Type').value;
-		MXForce = document.getElementById('Force').value;
-		MXSwitchM = document.getElementById('SwitchM').value;
-		MXForceType = document.getElementById('ForceType').value;
+		var MXName = document.getElementById('Name').value;
+		var MXImage = document.getElementById('Image').value;
+		var MXType = document.getElementById('Type').value;
+		var MXForce = document.getElementById('Force').value;
+		var MXSwitchM = document.getElementById('SwitchM').value;
+		var MXForceType = document.getElementById('ForceType').value;
 		
-		writeSwitchData(SwitchM, Name, Type, Force, ForceType, Image);	
+		writeSwitchData(MXSwitchM, MXName, MXType, MXForce, MXForceType, MXImage);	
 		
 		document.getElementById('Name').value = ''
 		document.getElementById('Image').value = '';
@@ -157,12 +171,12 @@ document.getElementById('Submit').onclick= function(){
 //Submit new switch ALPS data
 document.getElementById('AlpsSubmit').onclick= function(){
 	if (confirm("Please check everything is correct. You will not be able to change it once you press OK")){
-		AlpsName = document.getElementById('AlpsName').value;
-		AlpsImage = document.getElementById('AlpsImage').value;
-		AlpsType = document.getElementById('AlpsType').value;
-		AlpsForce = document.getElementById('AlpsForce').value;
-		AlpsSwitchM = document.getElementById('AlpsSwitchM').value;
-		AlpsForceType = document.getElementById('AlpsForceType').value;
+		var AlpsName = document.getElementById('AlpsName').value;
+		var AlpsImage = document.getElementById('AlpsImage').value;
+		var AlpsType = document.getElementById('AlpsType').value;
+		var AlpsForce = document.getElementById('AlpsForce').value;
+		var AlpsSwitchM = document.getElementById('AlpsSwitchM').value;
+		var AlpsForceType = document.getElementById('AlpsForceType').value;
 		
 		writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);	
 		
@@ -291,35 +305,13 @@ function sortTable(n,TableID){
 	}	
 }
 
-//closing and opening of the sidebar menu with the animation line
-document.getElementById('menu').onclick= function(){
-	document.getElementById('menu').classList.toggle('change');  //animate the menu button
-	var div = document.getElementById('overview');
-    if (div.style.display !== 'none') {
-        div.style.display = 'none';  							 //close the sidebar
-		document.getElementById('content').style.marginLeft = '0'
-		document.getElementById('wrapper').style.maxWidth = '1000px';
-		    }
-    else {
-        div.style.display = 'block';							 //open the sidebar
-		document.getElementById('content').style.marginLeft = '320px' //content back to original size
-		document.getElementById('wrapper').style.maxWidth = '1500px';
-    }	
-}
-
-var activated = 0;
-document.getElementById('Secret').onclick= function(){
-	if (activated == 0){
-		activated++
-		console.log('You have activated the secret menu');
-		document.getElementById('MXsecret').style.display = 'block';
-		document.getElementById('Alpssecret').style.display = 'block';
-	}
+document.getElementById('myInput').onkeyup = function(){
+	binarySearch()
 }
 
 //Binary Search
 function binarySearch(){
-	var array = arrayListHeaders											//defines array of list headers ID
+	var array = sessionStorage.getItem("arrayListHeaders").split(",")												//defines array of list headers ID
     var startIndex  = 0;													//start index of binary search, MINIMUM value
     var stopIndex = array.length - 1;										//last index of binary serach array, max value
     var middle = Math.floor((stopIndex + startIndex)/2);					//*middle of array*/
@@ -382,10 +374,27 @@ function binarySearch(){
 	}
 }
 
-function getListOfHeaders(list){	//gets all the values of the items in the 'list' which is the headers of the HTML files and add  them all to an array
-	for (var k = 0; k < list.length; k++){
-		arrayListHeaders.push(list[k].innerHTML)
+function getListOfHeaders(){	//gets all the values of the items in the 'list' which is the headers of the HTML files and add  them all to an array
+	var arrayListHeaders = []
+	var listh1 = document.getElementsByTagName('h1')
+	var listh2 = document.getElementsByTagName('h2')
+	var listh3 = document.getElementsByTagName('h3')
+	var listh4 = document.getElementsByTagName('h4')
+		
+	for (var k = 0; k < listh1.length; k++){
+		arrayListHeaders.push(listh1[k].innerHTML)
 	}
+	for (var k = 0; k < listh2.length; k++){
+		arrayListHeaders.push(listh2[k].innerHTML)
+	}
+	for (var k = 0; k < listh3.length; k++){
+		arrayListHeaders.push(listh3[k].innerHTML)
+	}
+	for (var k = 0; k < listh4.length; k++){
+		arrayListHeaders.push(listh4[k].innerHTML)
+	}
+	arrayListHeaders.sort()
+	sessionStorage.setItem("arrayListHeaders",arrayListHeaders)
 }
 
 
