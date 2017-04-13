@@ -7,8 +7,6 @@ $(document).ready(function(){
 	
 	AnonymousLogin();
 	
-	retrieveDatabase();  //counts how many items in the MX table
-	
 	$('#nav').onePageNav(); //go to page 1/top of the page
 
 	$('a[href^="http"]').attr('target','_blank'); //onclick nav, go to specific reference
@@ -18,8 +16,11 @@ $(document).ready(function(){
 	BuildMXTable()
 	
 	BuildAlpsTable();
-	
 });
+
+document.getElementById('myInput').onkeyup = function(){					//when keystroke is up, the search function will be initiated
+	binarySearch()
+}
 
 //closing and opening of the sidebar menu with the animation line
 document.getElementById('menu').onclick= function(){
@@ -47,7 +48,7 @@ document.getElementById('Secret').onclick= function(){
 	}
 }
 
-function AnonymousLogin(){ 			//anonymous login and authentication to Firebase Database 
+function AnonymousLogin(){ 									//anonymous login and authentication to Firebase Database 
 	firebase.auth().signInAnonymously().then(function() {
 		console.log('Logged in as Anonymous!')
 		}).catch(function(error) {
@@ -64,10 +65,10 @@ function BuildMXTable(){
 		const SwitchTable = document.getElementById('SwitchTable');				//Define Switch table, add rows and columns to table
 		
 		var MXName = snap.child('Name').val();									//Get Name from database
-		var MXImage = snap.child('Picture').val()									//Get Picture from database
-		var MXType = snap.child('Type').val()										//Get Type from database
-		var MXForce = snap.child('Force').val()					//Get Actuation Force from database
-		var MXForceType = snap.child('ForceType').val()
+		var MXImage = snap.child('Picture').val()								//Get Picture from database
+		var MXType = snap.child('Type').val()									//Get Type from database
+		var MXForce = snap.child('Force').val()									//Get Actuation Force from database
+		var MXForceType = snap.child('ForceType').val()							//Get Forcetype of the switch from database
 		var MXSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
 		var row = SwitchTable.insertRow(-1);									//add row to end of table table, hence the -1
@@ -90,13 +91,13 @@ function BuildAlpsTable() {
 		const SwitchTable = document.getElementById('AlpsSwitchTable');				//Define Switch table, add rows and columns to table
 		
 		var AlpsName = snap.child('Name').val();									//Get Name from database
-		var AlpsImage = snap.child('Picture').val()									//Get Picture from database
+		var AlpsImage = snap.child('Picture').val()									//Get Picture from database, is a link e.g. https://...
 		var AlpsType = snap.child('Type').val()										//Get Type from database
-		var AlpsForce = snap.child('Force').val()					//Get Actuation Force from database
-		var AlpsForceType = snap.child('ForceType').val()
+		var AlpsForce = snap.child('Force').val()									//Get Actuation Force from database
+		var AlpsForceType = snap.child('ForceType').val()							//Get Forcetype of the switch from database
 		var AlpsSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
-		var row = SwitchTable.insertRow(-1);									//add data to table
+		var row = SwitchTable.insertRow(-1);										//add another row on the end of the table
   		var cell1 = row.insertCell(0);
     	var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
@@ -134,16 +135,6 @@ function writeAlpsSwitchData(switchManufacturer, name, types, force, forceType, 
 		ForceType: forceType
   	});
 	alert('Written to Alps database');
-}
-
-//retrieve database
-function retrieveDatabase(){
-firebase.database().ref().on('value', function(snapshot) {
-	switchDatabase = snapshot.val();								//snapshot.val() is the object's value returned from the database
-	console.log(Object.keys(switchDatabase.Switches).length); 		//logs the no. of items in the database
-	}, function (error) {
-		console.log('Error: ' + error.code);
-	});
 }
 
 //Submit new switch MX data
@@ -189,7 +180,7 @@ document.getElementById('AlpsSubmit').onclick= function(){
 	}
 }
 
-//sorting table, bubble sort
+//sorting table, bubble sort, called from the HTML page through onclick function
 function sortTable(n,TableID){
 	var table, rowsSort, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	console.log(n, TableID)
@@ -202,102 +193,100 @@ function sortTable(n,TableID){
     	rowsSort = table.getElementsByTagName("TR");
     	/*Loop through all table rows (except the first, which contains table headers):*/
     	for (i = 1; i < (rowsSort.length - 1); i++) {
-		  //start by saying there should be no switching:
-		  shouldSwitch = false;
-		  x = rowsSort[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
-		  y = rowsSort[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
-		  if (dir == "asc") {
-			  if (TableID.id == 'SwitchTable'){
-				if (n == 0){
-			  	document.getElementById("MXManufacturerArrow").innerHTML = '▼'
-				document.getElementById("MXNameArrow").innerHTML = ''
-				document.getElementById("MXTypeArrow").innerHTML = ''
-				document.getElementById("MXForceArrow").innerHTML = ''
-				} else if (n == 1){
-				document.getElementById("MXManufacturerArrow").innerHTML = ''
-				document.getElementById("MXNameArrow").innerHTML = '▼'
-				document.getElementById("MXTypeArrow").innerHTML = ''
-				document.getElementById("MXForceArrow").innerHTML = ''
-				} else if (n == 2){
-				document.getElementById("MXManufacturerArrow").innerHTML = ''
-				document.getElementById("MXNameArrow").innerHTML = ''
-				document.getElementById("MXTypeArrow").innerHTML = '▼'
-				document.getElementById("MXForceArrow").innerHTML = ''
-				}else if (n == 3){
-				document.getElementById("MXManufacturerArrow").innerHTML = ''
-				document.getElementById("MXNameArrow").innerHTML = ''
-				document.getElementById("MXTypeArrow").innerHTML = ''
-				document.getElementById("MXForceArrow").innerHTML = '▼'
+			//start by saying there should be no switching:
+			shouldSwitch = false;
+			x = rowsSort[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+			y = rowsSort[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+			if (dir == "asc") {
+				if (TableID.id == 'SwitchTable'){
+					if (n == 0){
+						document.getElementById("MXManufacturerArrow").innerHTML = '▼'
+						document.getElementById("MXNameArrow").innerHTML = ''
+						document.getElementById("MXTypeArrow").innerHTML = ''
+						document.getElementById("MXForceArrow").innerHTML = ''
+					} else if (n == 1){
+						document.getElementById("MXManufacturerArrow").innerHTML = ''
+						document.getElementById("MXNameArrow").innerHTML = '▼'
+						document.getElementById("MXTypeArrow").innerHTML = ''
+						document.getElementById("MXForceArrow").innerHTML = ''
+					} else if (n == 2){
+						document.getElementById("MXManufacturerArrow").innerHTML = ''
+						document.getElementById("MXNameArrow").innerHTML = ''
+						document.getElementById("MXTypeArrow").innerHTML = '▼'
+						document.getElementById("MXForceArrow").innerHTML = ''
+					}else if (n == 3){
+						document.getElementById("MXManufacturerArrow").innerHTML = ''
+						document.getElementById("MXNameArrow").innerHTML = ''
+						document.getElementById("MXTypeArrow").innerHTML = ''
+						document.getElementById("MXForceArrow").innerHTML = '▼'
+					}
+				} else if (TableID.id == 'AlpsSwitchTable'){
+					if (n == 0){
+						document.getElementById("AlpsManufacturerArrow").innerHTML = '▼'
+						document.getElementById("AlpsNameArrow").innerHTML = ''
+						document.getElementById("AlpsTypeArrow").innerHTML = ''
+						document.getElementById("AlpsForceArrow").innerHTML = ''
+					} else if (n == 1){
+						document.getElementById("AlpsManufacturerArrow").innerHTML = ''
+						document.getElementById("AlpsNameArrow").innerHTML = '▼'
+						document.getElementById("AlpsTypeArrow").innerHTML = ''
+						document.getElementById("AlpsForceArrow").innerHTML = ''
+					} else if (n == 2){
+						document.getElementById("AlpsManufacturerArrow").innerHTML = ''
+						document.getElementById("AlpsNameArrow").innerHTML = ''
+						document.getElementById("AlpsTypeArrow").innerHTML = '▼'
+						document.getElementById("AlpsForceArrow").innerHTML = ''
+					}else if (n == 3){
+						document.getElementById("AlpsManufacturerArrow").innerHTML = ''
+						document.getElementById("AlpsNameArrow").innerHTML = ''
+						document.getElementById("AlpsTypeArrow").innerHTML = ''
+						document.getElementById("AlpsForceArrow").innerHTML = '▼'
+					}
 				}
-			  }
-			  else if (TableID.id == 'AlpsSwitchTable'){
-				if (n == 0){
-			  	document.getElementById("AlpsManufacturerArrow").innerHTML = '▼'
-				document.getElementById("AlpsNameArrow").innerHTML = ''
-				document.getElementById("AlpsTypeArrow").innerHTML = ''
-				document.getElementById("AlpsForceArrow").innerHTML = ''
-				} else if (n == 1){
-				document.getElementById("AlpsManufacturerArrow").innerHTML = ''
-				document.getElementById("AlpsNameArrow").innerHTML = '▼'
-				document.getElementById("AlpsTypeArrow").innerHTML = ''
-				document.getElementById("AlpsForceArrow").innerHTML = ''
-				} else if (n == 2){
-				document.getElementById("AlpsManufacturerArrow").innerHTML = ''
-				document.getElementById("AlpsNameArrow").innerHTML = ''
-				document.getElementById("AlpsTypeArrow").innerHTML = '▼'
-				document.getElementById("AlpsForceArrow").innerHTML = ''
-				}else if (n == 3){
-				document.getElementById("AlpsManufacturerArrow").innerHTML = ''
-				document.getElementById("AlpsNameArrow").innerHTML = ''
-				document.getElementById("AlpsTypeArrow").innerHTML = ''
-				document.getElementById("AlpsForceArrow").innerHTML = '▼'
+				if (x > y) {
+				  //if so, mark as a switch and break the loop:
+				  shouldSwitch= true;
+				  break;
 				}
-			  }
-			if (x > y) {
-			  //if so, mark as a switch and break the loop:
-			  shouldSwitch= true;
-			  break;
-			}
-		  } else if (dir == "desc") {
-			if (x < y) {
-			  //if so, mark as a switch and break the loop:
-			  shouldSwitch= true;
-			  break;
-			  }
+			  } else if (dir == "desc") {
+				if (x < y) {
+				  //if so, mark as a switch and break the loop:
+				  shouldSwitch= true;
+				  break;
+				}
 			}
       	}
-	  if (shouldSwitch == true) {
-		/*If a switch has been marked, make the switch and mark that a switch has been done:*/
-		rowsSort[i].parentNode.insertBefore(rowsSort[i + 1], rowsSort[i]); //if should switch, then move the row that is less than the row above, to above that row
-		switching = true;
-		//Each time a switch is done, increase this count by 1:
-		switchcount ++;      
-	  } else {
-		 console.log(switchcount)
-		/*If no switching has been done AND the direction is "asc",set the direction to "desc" and run the while loop again.*/
-		if (switchcount == 0 && dir == "asc") {
-			dir = "desc";
+		if (shouldSwitch == true) {
+			/*If a switch has been marked, make the switch and mark that a switch has been done:*/
+			rowsSort[i].parentNode.insertBefore(rowsSort[i + 1], rowsSort[i]); //if should switch, then move the row that is less than the row above, to above that row
 			switching = true;
-			if (TableID.id == 'SwitchTable'){										//change the visual representation of the sorting algorithm
-				if (n == 0){
-					document.getElementById("MXManufacturerArrow").innerHTML = '▲'
-					} else if (n == 1){
-					document.getElementById("MXNameArrow").innerHTML = '▲'
-					} else if (n == 2){
-					document.getElementById("MXTypeArrow").innerHTML = '▲'
-					}else if (n == 3){
-					document.getElementById("MXForceArrow").innerHTML = '▲'
-					}
-				  }
-				  else if (TableID.id == 'AlpsSwitchTable'){
+			//Each time a switch is done, increase this count by 1:
+			switchcount ++;      
+		} else {
+			console.log(switchcount)
+			/*If no switching has been done AND the direction is "asc",set the direction to "desc" and run the while loop again.*/
+			if (switchcount == 0 && dir == "asc") {
+				dir = "desc";
+				switching = true;
+				if (TableID.id == 'SwitchTable'){										//change the visual representation of the sorting algorithm
 					if (n == 0){
-					document.getElementById("AlpsManufacturerArrow").innerHTML = '▲'
+						document.getElementById("MXManufacturerArrow").innerHTML = '▲'
 					} else if (n == 1){
-					document.getElementById("AlpsNameArrow").innerHTML = '▲'
+						document.getElementById("MXNameArrow").innerHTML = '▲'
 					} else if (n == 2){
-					document.getElementById("AlpsTypeArrow").innerHTML = '▲'
+						document.getElementById("MXTypeArrow").innerHTML = '▲'
+					} else if (n == 3){
+						document.getElementById("MXForceArrow").innerHTML = '▲'
+					}
+				} else if (TableID.id == 'AlpsSwitchTable'){
+					if (n == 0){
+						document.getElementById("AlpsManufacturerArrow").innerHTML = '▲'
+					} else if (n == 1){
+						document.getElementById("AlpsNameArrow").innerHTML = '▲'
+					} else if (n == 2){
+						document.getElementById("AlpsTypeArrow").innerHTML = '▲'
 					}else if (n == 3){
-					document.getElementById("AlpsForceArrow").innerHTML = '▲'
+						document.getElementById("AlpsForceArrow").innerHTML = '▲'
 					}
 				}
 			}
@@ -305,13 +294,9 @@ function sortTable(n,TableID){
 	}	
 }
 
-document.getElementById('myInput').onkeyup = function(){
-	binarySearch()
-}
-
 //Binary Search
 function binarySearch(){
-	var array = sessionStorage.getItem("arrayListHeaders").split(",")												//defines array of list headers ID
+	var array = sessionStorage.getItem("arrayListHeaders").split(",")		//defines array of list headers ID
     var startIndex  = 0;													//start index of binary search, MINIMUM value
     var stopIndex = array.length - 1;										//last index of binary serach array, max value
     var middle = Math.floor((stopIndex + startIndex)/2);					//*middle of array*/
@@ -320,9 +305,15 @@ function binarySearch(){
 	var moreThanOneArray = []												//add the ID's of those that have the same starting x no. of letters
 	var counter = input.length												//how long the user input's string is
 	
-	function navAllShow(){
+	function navAllShow(){													//make all the items in the side nav on screen be shown
 		for (i = 0; i < array.length; i++){
-		  document.getElementById('+' + array[i]).style.display = "block"
+			document.getElementById('+' + array[i]).style.display = "block"
+		}
+	}
+	
+	function navAllHide(){													//make all the items in the side nav on screen disappear
+		for (i = 0; i < array.length; i++){
+			document.getElementById('+' + array[i]).style.display = "none"
 		}
 	}
 	
@@ -335,42 +326,36 @@ function binarySearch(){
 	if (input == ""){														//checks if the input box is blank
 		navAllShow()
 	} else if (moreThanOneArray.length > 1){							//if there are more than one items in the original array with the same characters
-		for (var p = 0; p < array.length; p++){
-			document.getElementById('+' + array[p]).style.display = "none" 	//make all the items in the side nav on screen disappear
-		}
+		navAllHide();
 		console.log('allhidden')
 		for (var h = 0; h < moreThanOneArray.length; h++){					//make all items in the moreThenOneArray be shown.
 			console.log('morethanone')								
 			document.getElementById('+' + moreThanOneArray[h]).style.display = "block" 
 		}
 	} else {
-	  while(array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) != input && startIndex < stopIndex){	//binary search if the first letters of the array is equal the user input	
-		  //adjust search area
-			  if (input < array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
-				  stopIndex = middle - 1;
-			  } else if (input > array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
-				  startIndex = middle + 1;
-			  }
-		  //recalculate middle
-		  middle = Math.floor((stopIndex + startIndex)/2);
-	  }
-
-	  if (array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) == input){ //make sure it's the right value
-		console.log('position: ' + middle)
-		document.getElementById('+' + array[middle]).style.display = "block";		//show this found value
-		var foundValue = array[middle]												//make a variable equal to the found value
-		array.splice(middle, 1)														//delete this found value from the array
-		  for (j = 0; j < array.length; j++){											
-			document.getElementById('+' + array[j]).style.display = "none";			//hide all the values except the found value in binary search
-		  }	
-		array.push(foundValue)														//re-add the found variable back to the array and sort
-		array.sort()												
-  
-	  } else {
-		console.log('not found')
-		navAllShow()
-	  }
-	  return (array[middle] != input) ? -1 : middle;				  //make sure it's the right value
+		while(array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) != input && startIndex < stopIndex){	//binary search if the first letters of the array is equal the user input	
+			//adjust search area
+				if (input < array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
+					stopIndex = middle - 1;
+				} else if (input > array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
+					startIndex = middle + 1;
+				}
+			//recalculate middle
+			middle = Math.floor((stopIndex + startIndex)/2);
+		}
+		if (array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) == input){ //make sure it's the right value
+			console.log('position: ' + middle)
+			document.getElementById('+' + array[middle]).style.display = "block";		//show this found value
+			var foundValue = array[middle]												//make a variable equal to the found value
+			array.splice(middle, 1);													//delete this found value from the array
+			navAllHide();
+			array.push(foundValue);														//re-add the found variable back to the array and sort
+			array.sort();										
+		} else {
+			console.log('not found')
+			navAllShow()
+		}
+		return (array[middle] != input) ? -1 : middle;				 					//make sure it's the right value
 	}
 }
 
