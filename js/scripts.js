@@ -16,6 +16,8 @@ $(document).ready(function(){
 	BuildMXTable()
 	
 	BuildAlpsTable();
+	
+	sessionStorage.clickcount = 0;
 });
 
 document.getElementById('myInput').onkeyup = function(){					//when keystroke is up, the search function will be initiated
@@ -38,10 +40,15 @@ document.getElementById('menu').onclick= function(){
     }	
 }
 
-var activated = 0;
 document.getElementById('Secret').onclick= function(){
-	if (activated == 0){
-		activated++
+	if (sessionStorage.clickcount) {
+		sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+		console.log(sessionStorage.clickcount)
+	} else {
+		sessionStorage.clickcount = 1;
+		console.log(sessionStorage.clickcount)
+	}
+	if (sessionStorage.clickcount < 2){
 		console.log('You have activated the secret menu');
 		document.getElementById('MXsecret').style.display = 'block';
 		document.getElementById('Alpssecret').style.display = 'block';
