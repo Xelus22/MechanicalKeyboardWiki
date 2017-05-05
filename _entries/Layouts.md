@@ -9,6 +9,7 @@ is-parent: no
 - There are many layouts to choose from as you may know from /r/MechanicalKeyboards, GeekHack, Deskthority and many other forums/websites. It may be overwhelming to some choosing the right layout but there's always a starting point. This will be a very basic layout guide. 
 
 <strong>ANSI vs ISO</strong>
+
 There are two main categories most keyboards fall under. It is ANSI and ISO. Most countries outside of Europe use ANSI while some parts of Europe use ISO. Which one you get depends on your country and the language you will use. 
 
 <strong>ANSI</strong>
@@ -17,7 +18,7 @@ There are two main categories most keyboards fall under. It is ANSI and ISO. Mos
 <strong>ISO</strong>
 ![ISO](https://raw.githubusercontent.com/Xelus22/MechanicalKeyboardWiki/master/img/basicISO.jpg){: .center-image }
 
-Another subtle difference in layouts is key size. While a keyboard might follow ANSI or ISO rules, some keyboard manufacturers make their own rules. A common difference in keyboard key sizes can be seen here: http://imgur.com/a/pFn0J#0
+Another subtle difference in layouts is key size. While a keyboard might follow ANSI or ISO rules, some keyboard manufacturers make their own rules. A common difference in keyboard key sizes can be seen <a href = 'http://imgur.com/a/pFn0J#0'>here</a>.
 
 For more information on keycap compatability and other layouts, check out LivingSpeedBump's post about keyboard layouts <a href = 'https://www.massdrop.com/talk/947/keyboard-layouts-explained-in-detail-many-pics?mode=group_open'>here</a>. 
 
