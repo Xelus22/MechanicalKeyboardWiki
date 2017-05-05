@@ -314,7 +314,7 @@ function binarySearch(){
 	
 	function navAllShow(){													//make all the items in the side nav on screen be shown
 		for (i = 0; i < array.length; i++){
-			document.getElementById('+' + array[i]).style.display = "block"
+			document.getElementById('+' + array[i]).style.display = "block" //ID of each element that will be shown/hidden has a + in front of it
 		}
 	}
 	
