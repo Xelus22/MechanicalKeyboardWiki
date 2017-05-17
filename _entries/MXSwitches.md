@@ -26,7 +26,7 @@ is-parent: no
 Add new or forgotten switches to the database here.
 <br>
 
-Note: For image link, please place in a direct link from imgur.
+Note: For image link, please place in a direct link from imgur. Also please place the 'g' behind actuation force without a space. If adding multiple weights, place commas between each weight (e.g. 67g, 78g, 99g, 420g)
 <br>
 <table id = 'AddSwitchTable'>
 <tr>
