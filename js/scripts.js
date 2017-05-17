@@ -255,7 +255,7 @@ function sortTable(n,TableID){
 				  shouldSwitch= true;
 				  break;
 				}
-			  } else if (dir == "desc") {
+			} else if (dir == "desc") {
 				if (x < y) {
 				  //if so, mark as a switch and break the loop:
 				  shouldSwitch= true;
