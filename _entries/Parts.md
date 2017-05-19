@@ -15,6 +15,7 @@ number: 4000
 <li><strong>PCB</strong>* (if not PCB then handwire)</li>
 <li><strong>Stabilizers</strong>* (use stabilizers only if there are keys longer than or equal to 2u)</li>
 <li><strong>Keycaps</strong></li>
+<li><strong>Firmware</strong></li>
 </ul>
 
 You will also need to consider the layout that is best suited for you as there are many layouts to choose from. From the smallest, 30% keyboards all the way to fullsize keyboards.
