@@ -4,6 +4,7 @@ $(document).ready(function(){
 	document.getElementById('menu').classList.toggle('change'); 
 	document.getElementById('MXsecret').style.display = 'none';
 	document.getElementById('Alpssecret').style.display = 'none';
+	document.getElementById('clearInput').style.display = 'none';
 	
 	AnonymousLogin();
 	
@@ -21,7 +22,13 @@ $(document).ready(function(){
 });
 
 document.getElementById('myInput').onkeyup = function(){					//when keystroke is up, the search function will be initiated
-	binarySearch()
+	binarySearch();
+}
+
+//Clear the search input
+document.getElementById('clearInput').onclick = function(){					//Shows button to clear input field
+	document.getElementById('myInput').value = "";
+	binarySearch();
 }
 
 //closing and opening of the sidebar menu with the animation line
@@ -312,6 +319,7 @@ function binarySearch(){
 	var moreThanOneArray = []												//add the ID's of those that have the same starting x no. of letters
 	var counter = input.length												//how long the user input's string is
 	
+	
 	function navAllShow(){													//make all the items in the side nav on screen be shown
 		for (i = 0; i < array.length; i++){
 			document.getElementById('+' + array[i]).style.display = "block" //ID of each element that will be shown/hidden has a + in front of it
@@ -332,7 +340,11 @@ function binarySearch(){
 
 	if (input == ""){														//checks if the input box is blank
 		navAllShow()
+		document.getElementById('clearInput').style.display = 'none';
+		document.getElementById('myInput').style.width = '258.4px';
 	} else if (moreThanOneArray.length > 1){							//if there are more than one items in the original array with the same characters
+		document.getElementById('clearInput').style.display = '';
+		document.getElementById('myInput').style.width = '234.4px';
 		navAllHide();
 		console.log('allhidden')
 		for (var h = 0; h < moreThanOneArray.length; h++){					//make all items in the moreThenOneArray be shown.
@@ -340,6 +352,8 @@ function binarySearch(){
 			document.getElementById('+' + moreThanOneArray[h]).style.display = "block" 
 		}
 	} else {
+		document.getElementById('clearInput').style.display = '';
+		document.getElementById('myInput').style.width = '234.4px';
 		while(array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) != input && startIndex < stopIndex){	//binary search if the first letters of the array is equal the user input	
 			//adjust search area
 				if (input < array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
