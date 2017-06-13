@@ -310,6 +310,7 @@ function sortTable(n,TableID){
 
 //Binary Search
 function binarySearch(){
+	var inputCSS = document.getElementById('myInput');
 	var array = sessionStorage.getItem("arrayListHeaders").split(",")		//defines array of list headers ID
     var startIndex  = 0;													//start index of binary search, MINIMUM value
     var stopIndex = array.length - 1;										//last index of binary serach array, max value
@@ -341,7 +342,11 @@ function binarySearch(){
 	if (input == ""){														//checks if the input box is blank
 		navAllShow()
 		document.getElementById('clearInput').style.display = 'none';
-		document.getElementById('myInput').style.width = '258.4px';
+		if(inputCSS.scrollHeight > inputCSS.clientHeight){
+			inputCSS.style.width = '258.4px';
+		} else { 
+			inputCSS.style.width = '240.4px';
+		}
 	} else if (moreThanOneArray.length > 1){							//if there are more than one items in the original array with the same characters
 		document.getElementById('clearInput').style.display = '';
 		document.getElementById('myInput').style.width = '234.4px';
@@ -353,7 +358,6 @@ function binarySearch(){
 		}
 	} else {
 		document.getElementById('clearInput').style.display = '';
-		document.getElementById('myInput').style.width = '234.4px';
 		while(array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) != input && startIndex < stopIndex){	//binary search if the first letters of the array is equal the user input	
 			//adjust search area
 				if (input < array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter)){
@@ -365,6 +369,7 @@ function binarySearch(){
 			middle = Math.floor((stopIndex + startIndex)/2);
 		}
 		if (array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) == input){ //make sure it's the right value
+			document.getElementById('myInput').style.width = '234.4px';
 			console.log('position: ' + middle)
 			document.getElementById('+' + array[middle]).style.display = "block";		//show this found value
 			var foundValue = array[middle]												//make a variable equal to the found value
@@ -375,6 +380,7 @@ function binarySearch(){
 		} else {
 			console.log('not found')
 			navAllShow()
+			document.getElementById('myInput').style.width = '220.4px';
 		}
 		return (array[middle] != input) ? -1 : middle;				 					//make sure it's the right value
 	}
