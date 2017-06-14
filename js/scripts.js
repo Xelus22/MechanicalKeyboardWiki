@@ -19,6 +19,8 @@ $(document).ready(function(){
 	BuildAlpsTable();
 	
 	sessionStorage.clickcount = 0;
+	
+	binarySearch();
 });
 
 document.getElementById('myInput').onkeyup = function(){					//when keystroke is up, the search function will be initiated
@@ -310,6 +312,7 @@ function sortTable(n,TableID){
 
 //Binary Search
 function binarySearch(){
+	var inputDIV = document.getElementById('overview');
 	var inputCSS = document.getElementById('myInput');
 	var array = sessionStorage.getItem("arrayListHeaders").split(",")		//defines array of list headers ID
     var startIndex  = 0;													//start index of binary search, MINIMUM value
@@ -342,14 +345,21 @@ function binarySearch(){
 	if (input == ""){														//checks if the input box is blank
 		navAllShow()
 		document.getElementById('clearInput').style.display = 'none';
-		if(inputCSS.scrollHeight > inputCSS.clientHeight){
+		console.log(inputDIV.scrollHeight, inputDIV.clientHeight)
+		if(inputDIV.scrollHeight <= inputDIV.clientHeight){
 			inputCSS.style.width = '258.4px';
+			console.log('258.4')
 		} else { 
 			inputCSS.style.width = '240.4px';
+			console.log('240.4')
 		}
 	} else if (moreThanOneArray.length > 1){							//if there are more than one items in the original array with the same characters
 		document.getElementById('clearInput').style.display = '';
-		document.getElementById('myInput').style.width = '234.4px';
+		if (inputDIV.scrollHeight <= inputDIV.clientHeight){
+			inputCSS.style.width = '234.4px';  //when there is no scroll bar
+		} else {
+			inputCSS.style.width = '216.4px' //when there is a scroll bar
+		}
 		navAllHide();
 		console.log('allhidden')
 		for (var h = 0; h < moreThanOneArray.length; h++){					//make all items in the moreThenOneArray be shown.
@@ -369,7 +379,7 @@ function binarySearch(){
 			middle = Math.floor((stopIndex + startIndex)/2);
 		}
 		if (array[middle].toLowerCase().replace(/\s/g, '').substring(0,counter) == input){ //make sure it's the right value
-			document.getElementById('myInput').style.width = '234.4px';
+			document.getElementById('myInput').style.width = '234.4px'; // changes the input width
 			console.log('position: ' + middle)
 			document.getElementById('+' + array[middle]).style.display = "block";		//show this found value
 			var foundValue = array[middle]												//make a variable equal to the found value
