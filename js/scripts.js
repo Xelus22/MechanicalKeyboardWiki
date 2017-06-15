@@ -345,13 +345,13 @@ function binarySearch(){
 	if (input == ""){														//checks if the input box is blank
 		navAllShow()
 		document.getElementById('clearInput').style.display = 'none';
-		console.log(inputDIV.scrollHeight, inputDIV.clientHeight)
+		console.log(inputDIV.scrollHeight, inputDIV.clientHeight, inputDIV.scrollWidth ,inputDIV.clientWidth)
 		if(inputDIV.scrollHeight <= inputDIV.clientHeight){
 			inputCSS.style.width = '258.4px';
 			console.log('258.4')
 		} else { 
-			inputCSS.style.width = '240.4px';
-			console.log('240.4')
+			inputCSS.style.width = '241.7px';
+			console.log('241.7')
 		}
 	} else if (moreThanOneArray.length > 1){							//if there are more than one items in the original array with the same characters
 		document.getElementById('clearInput').style.display = '';
