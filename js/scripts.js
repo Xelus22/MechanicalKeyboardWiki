@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+	document.getElementsByTagName('body')[0].onkeyup = function(e) { //checks for zooming, since ctrl is usually used to zoom
+      var ev = e || event;
+      if(ev.keyCode == 17) {//&& ev.ctrlKey) {
+         console.log('ctrl')
+		 binarySearch();
+      }
+   }
+	
 	//change the menu animation for UI purposes
 	document.getElementById('menu').classList.toggle('change'); 
 	document.getElementById('MXsecret').style.display = 'none';
