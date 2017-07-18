@@ -10,11 +10,11 @@ $(document).ready(function(){
 	
 	//change the menu animation for UI purposes
 	document.getElementById('menu').classList.toggle('change'); 
-	document.getElementById('MXsecret').style.display = 'none';
-	document.getElementById('Alpssecret').style.display = 'none';
-	document.getElementById('clearInput').style.display = 'none';
+	document.getElementById('MXsecret').style.display = 'none';				//hide secret
+	document.getElementById('Alpssecret').style.display = 'none';			//hide secret
+	document.getElementById('clearInput').style.display = 'none';			//hide X button to clear the search button
 	
-	AnonymousLogin();
+	AnonymousLogin();														
 	
 	$('#nav').onePageNav(); //go to page 1/top of the page
 
@@ -26,7 +26,7 @@ $(document).ready(function(){
 	
 	BuildAlpsTable();
 	
-	sessionStorage.clickcount = 0;
+	sessionStorage.clickcount = 0;						//make a sessionStorage of click count to check if something has been pressed how many times
 	
 	binarySearch();
 });
@@ -36,7 +36,7 @@ document.getElementById('myInput').onkeyup = function(){					//when keystroke is
 }
 
 //Clear the search input
-document.getElementById('clearInput').onclick = function(){					//Shows button to clear input field
+document.getElementById('clearInput').onclick = function(){					//when button is clicked, clear search input field
 	document.getElementById('myInput').value = "";
 	binarySearch();
 }
@@ -47,28 +47,23 @@ document.getElementById('menu').onclick= function(){
 	var div = document.getElementById('overview');
     if (div.style.display !== 'none') {
         div.style.display = 'none';  							 //close the sidebar
-		document.getElementById('content').style.marginLeft = '0'
-		document.getElementById('wrapper').style.maxWidth = '1000px';
+		document.getElementById('content').style.marginLeft = '0'		//move content left
+		document.getElementById('wrapper').style.maxWidth = '1000px';		//width restrict content for best viewing experience
 		    }
     else {
         div.style.display = 'block';							 //open the sidebar
-		document.getElementById('content').style.marginLeft = '320px' //content back to original size
+		document.getElementById('content').style.marginLeft = '320px' //content back to original size, moved to the right
 		document.getElementById('wrapper').style.maxWidth = '1500px';
     }	
 }
 
-document.getElementById('Secret').onclick= function(){
-	if (sessionStorage.clickcount) {
-		sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-		console.log(sessionStorage.clickcount)
-	} else {
-		sessionStorage.clickcount = 1;
-		console.log(sessionStorage.clickcount)
-	}
+document.getElementById('Secret').onclick= function(){ 			//checks if the secret button has been clicked already or not
 	if (sessionStorage.clickcount < 2){
 		console.log('You have activated the secret menu');
-		document.getElementById('MXsecret').style.display = 'block';
-		document.getElementById('Alpssecret').style.display = 'block';
+		document.getElementById('MXsecret').style.display = 'block';			//show secret
+		document.getElementById('Alpssecret').style.display = 'block';			//show secret
+	} else {
+		sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;      //add 1 to clickcount in localstorage 
 	}
 }
 
@@ -96,16 +91,16 @@ function BuildMXTable(){
 		var MXSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
 		var row = SwitchTable.insertRow(-1);									//add row to end of table table, hence the -1
-  		var cell1 = row.insertCell(0);
-    	var cell2 = row.insertCell(1);
+  		var cell1 = row.insertCell(0);											//add cell in first index of the row
+    	var cell2 = row.insertCell(1);											//add more cell
 		var cell3 = row.insertCell(2);
 		var cell4 = row.insertCell(3);
 		var cell5 = row.insertCell(4);
-		cell1.innerHTML = MXSwitchM;
-		cell2.innerHTML = MXName;
-		cell3.innerHTML = MXType;
-		cell4.innerHTML = MXForce + ' ' +MXForceType + ' Force';
-		cell5.innerHTML = '<img src="'+MXImage+'"/>';
+		cell1.innerHTML = MXSwitchM;											//add text to cell in first column
+		cell2.innerHTML = MXName;												//add text to cell in 2nd column
+		cell3.innerHTML = MXType;												//add text to cell in 3rd column
+		cell4.innerHTML = MXForce + ' ' +MXForceType + ' Force';				//add text to cell in 4th column
+		cell5.innerHTML = '<img src="'+MXImage+'"/>';							//add image to cell in 5th column
 	});	
 }
 
@@ -122,16 +117,16 @@ function BuildAlpsTable() {
 		var AlpsSwitchM = snap.child('SwitchM').val()								//Get switch manufacturer from database
 		
 		var row = SwitchTable.insertRow(-1);										//add another row on the end of the table
-  		var cell1 = row.insertCell(0);
-    	var cell2 = row.insertCell(1);
-		var cell3 = row.insertCell(2);
-		var cell4 = row.insertCell(3);
-		var cell5 = row.insertCell(4);
-		cell1.innerHTML = AlpsSwitchM;
-		cell2.innerHTML = AlpsName;
-		cell3.innerHTML = AlpsType;
-		cell4.innerHTML = AlpsForce + ' ' + AlpsForceType + ' Force';
-		cell5.innerHTML = '<img src="'+AlpsImage+'"/>';
+  		var cell1 = row.insertCell(0);												//add cell
+    	var cell2 = row.insertCell(1);												//add cell
+		var cell3 = row.insertCell(2);												//add cell
+		var cell4 = row.insertCell(3);												//add cell
+		var cell5 = row.insertCell(4);												//add cell
+		cell1.innerHTML = AlpsSwitchM;												//text to cell
+		cell2.innerHTML = AlpsName;													//text to cell
+		cell3.innerHTML = AlpsType;													//text to cell
+		cell4.innerHTML = AlpsForce + ' ' + AlpsForceType + ' Force';				//text to cell
+		cell5.innerHTML = '<img src="'+AlpsImage+'"/>';								//image to cell
 	});	
 }
 
@@ -173,10 +168,10 @@ document.getElementById('Submit').onclick= function(){
 		
 		writeSwitchData(MXSwitchM, MXName, MXType, MXForce, MXForceType, MXImage);	
 		
-		document.getElementById('Name').value = ''
-		document.getElementById('Image').value = '';
-		document.getElementById('Force').value = '';
-		document.getElementById('SwitchM').value = '';
+		document.getElementById('Name').value = ''									//clear input
+		document.getElementById('Image').value = '';								//clear input
+		document.getElementById('Force').value = '';								//clear input
+		document.getElementById('SwitchM').value = '';								//clear input
 	}else{
 		return false
 	}
@@ -195,10 +190,10 @@ document.getElementById('AlpsSubmit').onclick= function(){
 		
 		writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);	
 		
-		document.getElementById('AlpsName').value = '';
-		document.getElementById('AlpsImage').value = '';
-		document.getElementById('AlpsForce').value = '';
-		document.getElementById('AlpsSwitchM').value = '';
+		document.getElementById('AlpsName').value = '';									//clear input
+		document.getElementById('AlpsImage').value = '';								//clear input
+		document.getElementById('AlpsForce').value = '';								//clear input
+		document.getElementById('AlpsSwitchM').value = '';								//clear input
 	}else{
 		return false
 	}
@@ -219,10 +214,10 @@ function sortTable(n,TableID){
     	for (i = 1; i < (rowsSort.length - 1); i++) {
 			//start by saying there should be no switching:
 			shouldSwitch = false;
-			x = rowsSort[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
-			y = rowsSort[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();
+			x = rowsSort[i].getElementsByTagName("TD")[n].innerHTML.toLowerCase();						//first row to compare
+			y = rowsSort[i + 1].getElementsByTagName("TD")[n].innerHTML.toLowerCase();					//second row to compare
 			if (dir == "asc") {
-				if (TableID.id == 'SwitchTable'){
+				if (TableID.id == 'SwitchTable'){									//change menu option showing ascending or descending direction
 					if (n == 0){
 						document.getElementById("MXManufacturerArrow").innerHTML = '▼'
 						document.getElementById("MXNameArrow").innerHTML = ''
