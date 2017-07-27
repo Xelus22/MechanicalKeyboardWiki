@@ -1,12 +1,12 @@
 $(document).ready(function(){
 
-	document.getElementsByTagName('body')[0].onkeyup = function(e) { //checks for zooming, since ctrl is usually used to zoom
+	document.getElementsByTagName('body')[0].onkeyup = function(e) { //checks for zooming, since ctrl is usually used to zoom. If user uses the inbrowser zoom functions manually using mouse clicks, then this function will not activate
       var ev = e || event;
       if(ev.keyCode == 17) {//&& ev.ctrlKey) {
          console.log('ctrl')
-		 binarySearch();
+		 binarySearch();	//changes the width of the left navigation panel accordingly inside the function itself
       }
-   }
+	}
 	
 	//change the menu animation for UI purposes
 	document.getElementById('menu').classList.toggle('change'); 
@@ -22,14 +22,17 @@ $(document).ready(function(){
 
 	getListOfHeaders();
 	
-	BuildMXTable()
+	BuildAlpsTable();	
 	
-	BuildAlpsTable();
+	BuildMXTable()
 	
 	sessionStorage.clickcount = 0;						//make a sessionStorage of click count to check if something has been pressed how many times
 	
 	binarySearch();
+	
 });
+
+
 
 document.getElementById('myInput').onkeyup = function(){					//when keystroke is up, the search function will be initiated
 	binarySearch();
@@ -100,7 +103,7 @@ function BuildMXTable(){
 		cell2.innerHTML = MXName;												//add text to cell in 2nd column
 		cell3.innerHTML = MXType;												//add text to cell in 3rd column
 		cell4.innerHTML = MXForce + ' ' +MXForceType + ' Force';				//add text to cell in 4th column
-		cell5.innerHTML = '<img src="'+MXImage+'"/>';							//add image to cell in 5th column
+		cell5.innerHTML = '<img style = "margin: 0px auto" src="'+MXImage+'"/>';							//add image to cell in 5th column
 	});	
 }
 
@@ -126,7 +129,7 @@ function BuildAlpsTable() {
 		cell2.innerHTML = AlpsName;													//text to cell
 		cell3.innerHTML = AlpsType;													//text to cell
 		cell4.innerHTML = AlpsForce + ' ' + AlpsForceType + ' Force';				//text to cell
-		cell5.innerHTML = '<img src="'+AlpsImage+'"/>';								//image to cell
+		cell5.innerHTML = '<img style = "margin: 0px auto" src="'+AlpsImage+'"/>';								//image to cell
 	});	
 }
 
@@ -158,47 +161,137 @@ function writeAlpsSwitchData(switchManufacturer, name, types, force, forceType, 
 
 //Submit new switch MX data
 document.getElementById('Submit').onclick= function(){
-	if (confirm("Please check everything is correct. You will not be able to change it once you press OK")){
-		var MXName = document.getElementById('Name').value;
-		var MXImage = document.getElementById('Image').value;
-		var MXType = document.getElementById('Type').value;
-		var MXForce = document.getElementById('Force').value;
-		var MXSwitchM = document.getElementById('SwitchM').value;
-		var MXForceType = document.getElementById('ForceType').value;
-		
-		writeSwitchData(MXSwitchM, MXName, MXType, MXForce, MXForceType, MXImage);	
-		
-		document.getElementById('Name').value = ''									//clear input
-		document.getElementById('Image').value = '';								//clear input
-		document.getElementById('Force').value = '';								//clear input
-		document.getElementById('SwitchM').value = '';								//clear input
-	}else{
-		return false
+	var Empty = []
+	var flag = false
+	if (document.getElementById('Name').value == ''){
+		Empty.push('Name')
+		flag = true
+	}
+	if (document.getElementById('Image').value == ''){
+		Empty.push('Image Link')
+		flag = true
+	}
+	if (document.getElementById('Type').value == ''){
+		Empty.push('Type')
+		flag = true
+	}
+	if (document.getElementById('Force').value == ''){
+		Empty.push('Force')
+		flag = true
+	}
+	if (document.getElementById('SwitchM').value == ''){
+		Empty.push('Switch Manufacturer')
+		flag = true
+	}
+	if (document.getElementById('ForceType').value == ''){
+		Empty.push('Force Type')
+		flag = true
+	}
+	
+	if (flag == true){
+		if (Empty.length == 1){
+			alert('The input field for ' + Empty[0] + ' is empty')
+		} else {
+			var Message
+			for (i = 0; i<Empty.length; i++){
+				if (i == (Empty.length - 1)){
+					Message = Message + ' and ' + Empty[i];
+				} else if (i == 0){
+					Message = Empty[i];
+				} else {
+					Message = Message + ', ' + Empty[i];
+				}
+			}
+			alert('The input fields ' + Message + ' are empty. Please fill these in to add to the table.')
+		}
+	} else {
+		if (confirm("Please check everything is correct. You will not be able to change it once you press OK")){
+			var MXName = document.getElementById('Name').value;
+			var MXImage = document.getElementById('Image').value;
+			var MXType = document.getElementById('Type').value;
+			var MXForce = document.getElementById('Force').value;
+			var MXSwitchM = document.getElementById('SwitchM').value;
+			var MXForceType = document.getElementById('ForceType').value;
+			
+			writeSwitchData(MXSwitchM, MXName, MXType, MXForce, MXForceType, MXImage);	
+			
+			document.getElementById('Name').value = ''									//clear input
+			document.getElementById('Image').value = '';								//clear input
+			document.getElementById('Force').value = '';								//clear input
+			document.getElementById('SwitchM').value = '';								//clear input
+		}else{
+			return false
+		}
 	}
 }
 
 
 //Submit new switch ALPS data
 document.getElementById('AlpsSubmit').onclick= function(){
-	if (confirm("Please check everything is correct. You will not be able to change it once you press OK")){
-		var AlpsName = document.getElementById('AlpsName').value;
-		var AlpsImage = document.getElementById('AlpsImage').value;
-		var AlpsType = document.getElementById('AlpsType').value;
-		var AlpsForce = document.getElementById('AlpsForce').value;
-		var AlpsSwitchM = document.getElementById('AlpsSwitchM').value;
-		var AlpsForceType = document.getElementById('AlpsForceType').value;
+	var Empty = []
+	var flag = false
+	if (document.getElementById('AlpsName').value == ''){		//checks to see if there are any blank input sections
+		Empty.push('Name')
+		flag = true
+	}
+	if (document.getElementById('AlpsImage').value == ''){		//checks to see if there are any blank input sections
+		Empty.push('Image Link')
+		flag = true
+	}
+	if (document.getElementById('AlpsType').value == ''){		//checks to see if there are any blank input sections
+		Empty.push('Type')
+		flag = true
+	}
+	if (document.getElementById('AlpsForce').value == ''){		//checks to see if there are any blank input sections
+		Empty.push('Force')
+		flag = true
+	}
+	if (document.getElementById('AlpsSwitchM').value == ''){	//checks to see if there are any blank input sections
+		Empty.push('Switch Manufacturer')
+		flag = true
+	}
+	if (document.getElementById('AlpsForceType').value == ''){	//checks to see if there are any blank input sections
+		Empty.push('Force Type')
+		flag = true
+	}
 		
-		writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);	
-		
-		document.getElementById('AlpsName').value = '';									//clear input
-		document.getElementById('AlpsImage').value = '';								//clear input
-		document.getElementById('AlpsForce').value = '';								//clear input
-		document.getElementById('AlpsSwitchM').value = '';								//clear input
-	}else{
-		return false
+	if (flag == true){											//If there are any left out blank spaces, alert the user
+		if (Empty.length == 1){									//if only one blank space left out, tell the user of that ONE
+			alert('The input field for ' + Empty[0] + ' is empty')
+		} else {												//if there is more than 1 blank space, using correct grammar tell the user the list of inputs left blank
+			var Message
+			for (i = 0; i<Empty.length; i++){
+				if (i == (Empty.length - 1)){					//if last one it must have AND 
+					Message = Message + ' and ' + Empty[i];
+				} else if (i == 0){								//if first one, it must be just the link
+					Message = Empty[i];
+				} else {										//if a middle one, it must have a comma
+					Message = Message + ', ' + Empty[i];
+				}
+			}
+			alert('The input fields ' + Message + ' are empty. Please fill these in to add to the table.')
+		}
+	} else {
+		if (confirm("Please check everything is correct. You will not be able to change it once you press OK")){ //get values from inputs
+			var MXName = document.getElementById('AlpsName').value;
+			var MXImage = document.getElementById('AlpsImage').value;
+			var MXType = document.getElementById('AlpsType').value;
+			var MXForce = document.getElementById('AlpsForce').value;
+			var MXSwitchM = document.getElementById('AlpsSwitchM').value;
+			var MXForceType = document.getElementById('AlpsForceType').value;
+			
+			writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);			//write to the database, another function
+			
+			document.getElementById('AlpsName').value = ''									//clear input
+			document.getElementById('AlpsImage').value = '';								//clear input
+			document.getElementById('AlpsForce').value = '';								//clear input
+			document.getElementById('AlpsSwitchM').value = '';								//clear input
+		}else{
+			return false
+		}
 	}
 }
-
+	
 //sorting table, bubble sort, called from the HTML page through onclick function
 function sortTable(n,TableID){
 	var table, rowsSort, switching, i, x, y, shouldSwitch, dir, switchcount = 0;

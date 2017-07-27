@@ -59,7 +59,7 @@ Note: For image link, please place in a direct link from imgur. Also please plac
 	</td>
 </tr>
 <tr>
-	<td width = '18%'>Image</td>
+	<td width = '18%'>Image Link</td>
 	<td width = '18%'><input type="text" id="Image" placeholder = 'direct link to image'></td>
 </tr>
  <tr>
