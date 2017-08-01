@@ -14,6 +14,6 @@ The first is Cherry style stabilisers where they can clip into either the plate 
 
 The other is Costar style stabilisers. These only mount to the plate and are slightly harder and more annoying to remove switches from. 
 
-![CostarCherry](gs://mechwiki-9ab20.appspot.com/costar_cherry_stabilizer.jpg){: .center-image }
+![CostarCherry](https://firebasestorage.googleapis.com/v0/b/mechwiki-9ab20.appspot.com/o/costar_cherry_stabilizer.jpg?alt=media&token=3796deb0-bd34-4751-b058-800853945682){: .center-image }
 
-![CostarCherry](gs://mechwiki-9ab20.appspot.com/costar_cherry_stabilizer_pcb and plate.jpg){: .center-image }
+![CostarCherry](https://firebasestorage.googleapis.com/v0/b/mechwiki-9ab20.appspot.com/o/costar_cherry_stabilizer_pcb%20and%20plate.jpg?alt=media&token=41618e88-5a3a-44ae-935c-d6f6abe0c2e0){: .center-image }
