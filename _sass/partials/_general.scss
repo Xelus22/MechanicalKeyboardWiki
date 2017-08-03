@@ -166,7 +166,7 @@ h1 {
     text-align: right;
     border-bottom: $green 9px solid;
     width: 100%;
-    line-height: 0.61;
+    line-height: 0.704;
     margin: 0 0 20px;
 
     &:before {
@@ -187,7 +187,7 @@ h2 {
     text-align: center;
     border-bottom: 5px solid $green;
     margin: 0 auto 20px;
-    line-height: 0.63;
+    line-height: 0.724;
 
     &:before {
         content: counter(h1-counter) "." counter(h2-counter) " ";
@@ -208,7 +208,7 @@ h3{
     text-align: left;
     border-bottom: 4px solid $green;
     margin: 0 auto 20px;
-    line-height: 0.65;
+    line-height: 0.744;
 
     &:before {
         content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) " ";
@@ -228,7 +228,7 @@ h4{
     text-align: left;
     border-bottom: 3px solid $green;
     margin: 0 auto 18px;
-    line-height: 0.67;
+    line-height: 0.764;
 
     &:before {
         content: counter(h1-counter) "." counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter) " ";
