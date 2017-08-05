@@ -161,35 +161,28 @@ function writeAlpsSwitchData(switchManufacturer, name, types, force, forceType, 
 
 //Submit new switch MX data
 document.getElementById('Submit').onclick= function(){
-	var Empty = []
-	var flag = false
+	var Empty = []										//Array of names of input boxes that are empty
 	if (document.getElementById('Name').value == ''){
 		Empty.push('Name')
-		flag = true
 	}
 	if (document.getElementById('Image').value == ''){
 		Empty.push('Image Link')
-		flag = true
 	}
 	if (document.getElementById('Type').value == ''){
 		Empty.push('Type')
-		flag = true
 	}
 	if (document.getElementById('Force').value == ''){
 		Empty.push('Force')
-		flag = true
 	}
 	if (document.getElementById('SwitchM').value == ''){
 		Empty.push('Switch Manufacturer')
-		flag = true
 	}
 	if (document.getElementById('ForceType').value == ''){
 		Empty.push('Force Type')
-		flag = true
 	}
 	
-	if (flag == true){
-		if (Empty.length == 1){
+	if (Empty.length >= 1){								//check if there are any blank input boxes
+		if (Empty.length == 1){							//if there is only 1 empty box, using correct grammar alert user
 			alert('The input field for ' + Empty[0] + ' is empty')
 		} else {
 			var Message
@@ -229,33 +222,26 @@ document.getElementById('Submit').onclick= function(){
 //Submit new switch ALPS data
 document.getElementById('AlpsSubmit').onclick= function(){
 	var Empty = []
-	var flag = false
 	if (document.getElementById('AlpsName').value == ''){		//checks to see if there are any blank input sections
 		Empty.push('Name')
-		flag = true
 	}
 	if (document.getElementById('AlpsImage').value == ''){		//checks to see if there are any blank input sections
 		Empty.push('Image Link')
-		flag = true
 	}
 	if (document.getElementById('AlpsType').value == ''){		//checks to see if there are any blank input sections
 		Empty.push('Type')
-		flag = true
 	}
 	if (document.getElementById('AlpsForce').value == ''){		//checks to see if there are any blank input sections
 		Empty.push('Force')
-		flag = true
 	}
 	if (document.getElementById('AlpsSwitchM').value == ''){	//checks to see if there are any blank input sections
 		Empty.push('Switch Manufacturer')
-		flag = true
 	}
 	if (document.getElementById('AlpsForceType').value == ''){	//checks to see if there are any blank input sections
 		Empty.push('Force Type')
-		flag = true
 	}
 		
-	if (flag == true){											//If there are any left out blank spaces, alert the user
+	if (Empty.length >= 1){										//If there are any left out blank spaces, alert the user
 		if (Empty.length == 1){									//if only one blank space left out, tell the user of that ONE
 			alert('The input field for ' + Empty[0] + ' is empty')
 		} else {												//if there is more than 1 blank space, using correct grammar tell the user the list of inputs left blank
