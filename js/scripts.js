@@ -240,8 +240,7 @@ document.getElementById('AlpsSubmit').onclick= function(){
 	if (document.getElementById('AlpsForceType').value == ''){	//checks to see if there are any blank input sections
 		Empty.push('Force Type')
 	}
-		
-	if (Empty.length >= 1){										//If there are any left out blank spaces, alert the user
+	if (Empty.length >= 1){										//If there are any left out blank spaces, alert the user		
 		if (Empty.length == 1){									//if only one blank space left out, tell the user of that ONE
 			alert('The input field for ' + Empty[0] + ' is empty')
 		} else {												//if there is more than 1 blank space, using correct grammar tell the user the list of inputs left blank
