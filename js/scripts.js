@@ -32,7 +32,9 @@ $(document).ready(function(){
 	
 });
 
-
+function hideCircle(){
+	
+}
 
 document.getElementById('myInput').onkeyup = function(){					//when keystroke is up, the search function will be initiated
 	binarySearch();
@@ -105,6 +107,13 @@ function BuildMXTable(){
 		cell4.innerHTML = MXForce + ' ' +MXForceType + ' Force';				//add text to cell in 4th column
 		cell5.innerHTML = '<img style = "margin: 0px auto" src="'+MXImage+'"/>';							//add image to cell in 5th column
 	});	
+	
+	firebase.database().ref().once("value", function(snapshot) {
+	switchDatabase = snapshot.val();								//get value from databases
+	console.log(Object.keys(switchDatabase.Switches).length);		//counts how many entries of MXswitches are in the database
+	}).then(
+		hideCircle()
+	);
 }
 
 function BuildAlpsTable() {
