@@ -13,7 +13,7 @@ $(document).ready(function(){
 	document.getElementById('MXsecret').style.display = 'none';				//hide secret
 	document.getElementById('Alpssecret').style.display = 'none';			//hide secret
 	document.getElementById('clearInput').style.display = 'none';			//hide X button to clear the search button
-	document.getElementById('DatabaseLoaded').style.display = 'none';
+	document.getElementById('DatabaseLoaded').style.display = 'none';		//hide the message that the database has been retrieved
 	
 	AnonymousLogin();														
 	
@@ -33,11 +33,11 @@ $(document).ready(function(){
 	
 });
 
-function hideCircle(){
-	console.log('hide circle');
-	$("#DatabaseLoaded").fadeIn(2000);
-    $("#LoadingCircle").fadeOut(2000);
-    $("#DatabaseLoaded").delay(1000).fadeOut(2000);
+function hideCircle(){									//hide the loading circle and message, then show message database loaded
+	console.log('hide circle');							//make sure for debugging
+	$("#DatabaseLoaded").fadeIn(2000);					//show message of database has loaded
+    $("#LoadingCircle").fadeOut(2000);					//hide loading circle
+    $("#DatabaseLoaded").delay(1000).fadeOut(2000);		//hide message of database loaded
 }
 
 document.getElementById('myInput').onkeyup = function(){					//when keystroke is up, the search function will be initiated
@@ -154,7 +154,7 @@ function BuildAlpsTable() {
 //Function to write MX data to the database	
 function writeSwitchData(switchManufacturer, name, types, force, forceType, imageUrl) {
  	firebase.database().ref('Switches/' + switchManufacturer + name).set({
-        Name: name,
+        Name: name,													//USER DEFINED OBJECTS
    	 	Type: types,
     	Picture : imageUrl,
 		SwitchM : switchManufacturer,
@@ -180,7 +180,7 @@ function writeAlpsSwitchData(switchManufacturer, name, types, force, forceType, 
 //Submit new switch MX data
 document.getElementById('Submit').onclick= function(){
 	var Empty = []										//Array of names of input boxes that are empty
-	if (document.getElementById('Name').value == ''){
+	if (document.getElementById('Name').value == ''){	//check if box is empty
 		Empty.push('Name')
 	}
 	if (document.getElementById('Image').value == ''){
@@ -445,7 +445,7 @@ function binarySearch(){
 		navAllShow()
 		document.getElementById('clearInput').style.display = 'none';
 		console.log(inputDIV.scrollHeight, inputDIV.clientHeight, inputDIV.scrollWidth ,inputDIV.clientWidth)
-		if(inputDIV.scrollHeight <= inputDIV.clientHeight){
+		if(inputDIV.scrollHeight <= inputDIV.clientHeight){					//check if there is a need to resize the search input box as it may be too wide or thick depending on how zoomed the page is.
 			inputCSS.style.width = '258.4px';
 			console.log('258.4')
 		} else { 
