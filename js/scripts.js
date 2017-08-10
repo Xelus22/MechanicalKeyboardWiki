@@ -15,6 +15,8 @@ $(document).ready(function(){
 	document.getElementById('clearInput').style.display = 'none';			//hide X button to clear the search button
 	document.getElementById('DatabaseLoaded').style.display = 'none';		//hide the message that the database has been retrieved
 	
+	mobilecheck();
+	
 	AnonymousLogin();														
 	
 	$('#nav').onePageNav(); //go to page 1/top of the page
@@ -30,8 +32,7 @@ $(document).ready(function(){
 	sessionStorage.clickcount = 0;						//make a sessionStorage of click count to check if something has been pressed how many times
 	
 	binarySearch();
-	
-	mobilecheck();
+
 	
 });
 
