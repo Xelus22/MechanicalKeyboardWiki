@@ -6,7 +6,7 @@ number: 4100
 parent-id: Parts
 is-parent: no
 ---
-You can build a sandwich case - made from metal or acrylic, or a mix of both.
+You can build a sandwich case or make your own! - made from metal or acrylic, or a mix of both. Even CORK. Anything your brain can come up with.
 
 You can buy cases from GB's or pre-made from taobao, or any other seller. 
 
