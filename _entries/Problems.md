@@ -1,5 +1,5 @@
 ---
-sectionid: Problems?
+sectionid: Problems
 sectionclass: h1
 is-parent: yes
 title: Problems?
