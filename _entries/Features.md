@@ -6,7 +6,7 @@ number: 3200
 parent-id: GeneralGuide
 is-parent: yes
 ---
-- While there are a wide variety of mechanical keyboard available, some features will significantly limit your choice. Among the features that will limit your selection are:
+- While there are a wide variety of mechanical keyboards available, some features will significantly limit your choice. Among the features that will limit your selection are:
 <ul style="list-style-type:circle">
 	<li>Backlighting</li>
 	<li>Integrated USB Hub/Audio Ports</li>
