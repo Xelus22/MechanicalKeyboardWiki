@@ -13,6 +13,7 @@ $(document).ready(function(){
 	document.getElementById('MXsecret').style.display = 'none';				//hide secret
 	document.getElementById('Alpssecret').style.display = 'none';			//hide secret
 	document.getElementById('clearInput').style.display = 'none';			//hide X button to clear the search button
+	document.getElementById('DatabaseLoaded').style.display = 'none';
 	
 	AnonymousLogin();														
 	
@@ -33,7 +34,10 @@ $(document).ready(function(){
 });
 
 function hideCircle(){
-	
+	console.log('hide circle');
+	$("#DatabaseLoaded").fadeIn(2000);
+    $("#LoadingCircle").fadeOut(2000);
+    $("#DatabaseLoaded").delay(1000).fadeOut(2000);
 }
 
 document.getElementById('myInput').onkeyup = function(){					//when keystroke is up, the search function will be initiated
@@ -105,14 +109,17 @@ function BuildMXTable(){
 		cell2.innerHTML = MXName;												//add text to cell in 2nd column
 		cell3.innerHTML = MXType;												//add text to cell in 3rd column
 		cell4.innerHTML = MXForce + ' ' +MXForceType + ' Force';				//add text to cell in 4th column
-		cell5.innerHTML = '<img style = "margin: 0px auto" src="'+MXImage+'"/>';							//add image to cell in 5th column
-	});	
+		cell5.innerHTML = '<img style = "margin: 0px auto" src="'+MXImage+'"/>';//add image to cell in 5th column
+		console.log('mxtable')
+	});
 	
-	firebase.database().ref().once("value", function(snapshot) {
+	firebase.database().ref().once("value", function(snapshot) {	//need this function to use as a promise to firebase database. the THEN function at the end will create a promise so we can hide the loading circle at the correct time.
 	switchDatabase = snapshot.val();								//get value from databases
-	console.log(Object.keys(switchDatabase.Switches).length);		//counts how many entries of MXswitches are in the database
+	console.log('MX' + Object.keys(switchDatabase.Switches).length);		//counts how many entries of MXswitches are in the database
 	}).then(
-		hideCircle()
+		function(){
+			hideCircle();											//hide the loading circle for users
+		}
 	);
 }
 
@@ -138,8 +145,10 @@ function BuildAlpsTable() {
 		cell2.innerHTML = AlpsName;													//text to cell
 		cell3.innerHTML = AlpsType;													//text to cell
 		cell4.innerHTML = AlpsForce + ' ' + AlpsForceType + ' Force';				//text to cell
-		cell5.innerHTML = '<img style = "margin: 0px auto" src="'+AlpsImage+'"/>';								//image to cell
-	});	
+		cell5.innerHTML = '<img style = "margin: 0px auto" src="'+AlpsImage+'"/>';	//image to cell
+		
+		console.log('alpstable')
+	});
 }
 
 //Function to write MX data to the database	
