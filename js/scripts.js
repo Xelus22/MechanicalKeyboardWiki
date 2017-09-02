@@ -295,12 +295,12 @@ document.getElementById('AlpsSubmit').onclick= function(){
 		}
 	} else {
 		if (confirm("Please check everything is correct. You will not be able to change it once you press OK")){ //get values from inputs
-			var MXName = document.getElementById('AlpsName').value;
-			var MXImage = document.getElementById('AlpsImage').value;
-			var MXType = document.getElementById('AlpsType').value;
-			var MXForce = document.getElementById('AlpsForce').value;
-			var MXSwitchM = document.getElementById('AlpsSwitchM').value;
-			var MXForceType = document.getElementById('AlpsForceType').value;
+			var AlpsName = document.getElementById('AlpsName').value;
+			var AlpsImage = document.getElementById('AlpsImage').value;
+			var AlpsType = document.getElementById('AlpsType').value;
+			var AlpsForce = document.getElementById('AlpsForce').value;
+			var AlpsSwitchM = document.getElementById('AlpsSwitchM').value;
+			var AlpsForceType = document.getElementById('AlpsForceType').value;
 			
 			writeAlpsSwitchData(AlpsSwitchM, AlpsName, AlpsType, AlpsForce, AlpsForceType, AlpsImage);			//write to the database, another function
 			
